@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using InventoryManager.WebMVC.Models;
+using InventoryManager.Data;
 
 namespace InventoryManager.WebMVC.Controllers
 {
