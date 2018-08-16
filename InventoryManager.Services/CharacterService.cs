@@ -59,7 +59,7 @@ namespace InventoryManager.Services
 
         public CharacterDetail GetCharacterById(int characterId)
         {
-            using (var ctx = new ApplicationDbContext)
+            using (var ctx = new ApplicationDbContext())
             {
 
                 var entity =

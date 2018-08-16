@@ -29,7 +29,7 @@ namespace InventoryManager.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CharacterCreate model)
         {
-            if (ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) return View(model);
 
             var service = CreateCharacterService();
 
