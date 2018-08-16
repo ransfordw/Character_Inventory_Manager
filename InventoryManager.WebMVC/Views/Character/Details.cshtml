@@ -1,0 +1,50 @@
+﻿@model InventoryManager.Models.CharacterDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CharacterDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CharacterID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CharacterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CharacterClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterRace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CharacterRace)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
