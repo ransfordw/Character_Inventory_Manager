@@ -92,5 +92,19 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             } 
         }
+
+        public bool DeleteCharacter (int characterId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Characters
+                        .Single(e => e.CharacterID == characterId && e.OwnerID == _userId);
+                ctx.Characters.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
