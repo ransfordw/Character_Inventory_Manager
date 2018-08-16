@@ -79,7 +79,7 @@ namespace InventoryManager.Services
 
         public bool UpdateNote(CharacterEdit model)
         {
-            using (var ctx = new ApplicationDbContext)
+            using (var ctx = new ApplicationDbContext())
             { var entity =
                         ctx
                             .Characters

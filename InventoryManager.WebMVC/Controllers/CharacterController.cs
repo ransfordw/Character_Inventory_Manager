@@ -67,6 +67,28 @@ namespace InventoryManager.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit (int id, CharacterEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            if(model.CharacterID != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateCharacterService();
+
+            if (service.UpdateNote(model))
+            {
+                TempData["SaveResult"] = "Your Character was updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your Character could not be updated.");
+            return View();
+        }
+
         private CharacterService CreateCharacterService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
