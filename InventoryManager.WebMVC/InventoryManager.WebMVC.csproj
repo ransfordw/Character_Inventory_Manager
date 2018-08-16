@@ -195,6 +195,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CharacterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -264,6 +265,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Character\Index.cshtml" />
+    <Content Include="Views\Character\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +285,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InventoryManager.Models\InventoryManager.Models.csproj">
+      <Project>{d3fe5b82-5f72-44eb-b131-91d52c3c654f}</Project>
+      <Name>InventoryManager.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InventoryMangager.Data\InventoryManager.Data.csproj">
       <Project>{697d0510-4971-4d07-bf06-23d19c082a2c}</Project>
       <Name>InventoryManager.Data</Name>

@@ -56,11 +56,28 @@
     <Compile Include="Character.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\201808161336160_InitialCreate.cs" />
+    <Compile Include="Migrations\201808161336160_InitialCreate.Designer.cs">
+      <DependentUpon>201808161336160_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161411336_changedEnumToString.cs" />
+    <Compile Include="Migrations\201808161411336_changedEnumToString.Designer.cs">
+      <DependentUpon>201808161411336_changedEnumToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808161336160_InitialCreate.resx">
+      <DependentUpon>201808161336160_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161411336_changedEnumToString.resx">
+      <DependentUpon>201808161411336_changedEnumToString.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
