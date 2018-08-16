@@ -76,5 +76,21 @@ namespace InventoryManager.Services
                     };
             }
         }
+
+        public bool UpdateNote(CharacterEdit model)
+        {
+            using (var ctx = new ApplicationDbContext)
+            { var entity =
+                        ctx
+                            .Characters
+                            .Single(e => e.CharacterID == model.CharacterID && e.OwnerID == _userId);
+
+                entity.CharacterName = model.CharacterName;
+                entity.CharacterClass = model.CharacterClass;
+                entity.CharacterRace = model.CharacterRace;
+
+                return ctx.SaveChanges() == 1;
+            } 
+        }
     }
 }
