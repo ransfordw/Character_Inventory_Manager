@@ -289,6 +289,10 @@
       <Project>{d3fe5b82-5f72-44eb-b131-91d52c3c654f}</Project>
       <Name>InventoryManager.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InventoryManager.Services\InventoryManager.Services.csproj">
+      <Project>{813991CF-71F6-454B-A2AB-A46E5CAB8F43}</Project>
+      <Name>InventoryManager.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InventoryMangager.Data\InventoryManager.Data.csproj">
       <Project>{697d0510-4971-4d07-bf06-23d19c082a2c}</Project>
       <Name>InventoryManager.Data</Name>
