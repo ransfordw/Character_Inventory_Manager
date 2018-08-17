@@ -1,4 +1,5 @@
 ﻿using InventoryManager.Models;
+using InventoryManager.Models.CharacterModels;
 using InventoryManager.Services;
 using Microsoft.AspNet.Identity;
 using System;

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterService.cs" />
+    <Compile Include="EquipmentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InventoryManager.Contracts\InventoryManager.Contracts.csproj">
+      <Project>{090A72E8-F955-4B29-A49C-C604506E801D}</Project>
+      <Name>InventoryManager.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InventoryManager.Models\InventoryManager.Models.csproj">
       <Project>{d3fe5b82-5f72-44eb-b131-91d52c3c654f}</Project>
       <Name>InventoryManager.Models</Name>

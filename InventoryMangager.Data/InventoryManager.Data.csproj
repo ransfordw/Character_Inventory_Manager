@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201808161411336_changedEnumToString.Designer.cs">
       <DependentUpon>201808161411336_changedEnumToString.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808171418563_addedEquipment.cs" />
+    <Compile Include="Migrations\201808171418563_addedEquipment.Designer.cs">
+      <DependentUpon>201808171418563_addedEquipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808161411336_changedEnumToString.resx">
       <DependentUpon>201808161411336_changedEnumToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171418563_addedEquipment.resx">
+      <DependentUpon>201808171418563_addedEquipment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,6 @@
 ﻿using InventoryManager.Data;
 using InventoryManager.Models;
+using InventoryManager.Models.CharacterModels;
 using InventoryMangager.Data;
 using System;
 using System.Collections.Generic;

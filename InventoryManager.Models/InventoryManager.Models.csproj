@@ -53,15 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CharacterCreate.cs" />
-    <Compile Include="CharacterDetail.cs" />
-    <Compile Include="CharacterEdit.cs" />
-    <Compile Include="CharacterListItem.cs" />
+    <Compile Include="CharacterModels\CharacterCreate.cs" />
+    <Compile Include="CharacterModels\CharacterDetail.cs" />
+    <Compile Include="CharacterModels\CharacterEdit.cs" />
+    <Compile Include="CharacterModels\CharacterListItem.cs" />
+    <Compile Include="Equipment\EquipmentCreate.cs" />
+    <Compile Include="Equipment\EquipmentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryMangager.Data\InventoryManager.Data.csproj">
+      <Project>{697D0510-4971-4D07-BF06-23D19C082A2C}</Project>
+      <Name>InventoryManager.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
