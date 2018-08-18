@@ -10,8 +10,11 @@ namespace InventoryManager.Models.CharacterModels
     public class CharacterCreate
     {
         [Required]
+        [Display(Name = "Name")]
         public string CharacterName { get; set; }
+        [Display(Name = "Class")]
         public string CharacterClass { get; set; }
+        [Display(Name = "Race")]
         public string CharacterRace { get; set; }
 
         public override string ToString() => CharacterName;
