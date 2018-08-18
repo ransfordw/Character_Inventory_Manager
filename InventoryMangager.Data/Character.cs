@@ -22,9 +22,9 @@ namespace InventoryMangager.Data
         public string  CharacterName { get; set; }
 
         [Required]
-        public string CharacterClass { get; set; }
+        public CharacterClass CharacterClass { get; set; }
 
         [Required]
-        public string CharacterRace { get; set; }
+        public CharacterRace CharacterRace { get; set; }
     }
 }
