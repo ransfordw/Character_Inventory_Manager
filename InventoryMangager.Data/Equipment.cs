@@ -18,15 +18,19 @@ namespace InventoryMangager.Data
         public Guid OwnerID { get; set; }
 
         [Required]
+        [Display(Name = "Item Name")]
         public string ItemName { get; set; }
 
         [Required]
+        [Display(Name = "Type of Item")]
         public ItemType ItemType { get; set; }
 
         [Required]
+        [Display(Name = "Description")]
         public string ItemDescription { get; set; }
 
         [Required]
+        [Display(Name = "Value")]
         public int ItemValue { get; set; }
 
         [Required]

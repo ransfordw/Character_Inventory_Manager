@@ -37,8 +37,8 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        
-       public IEnumerable<EquipmentListItem> GetEquipments()
+
+        public IEnumerable<EquipmentListItem> GetEquipments()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -81,6 +81,40 @@ namespace InventoryManager.Services
                         ItemValue = entity.ItemValue,
                         Currency = entity.Currency,
                     };
+            }
+        }
+
+        public bool UpdateEquipment(EquipmentEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                       ctx
+                            .Equipments
+                            .Single(e => e.ItemID == model.ItemID && e.OwnerID == _userId);
+
+                
+                entity.ItemName = model.ItemName;
+                entity.ItemType = model.ItemType;
+                entity.ItemDescription = model.ItemDescription;
+                entity.ItemValue = model.ItemValue;
+                entity.Currency = model.Currency;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteEquipment(int equipmentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                       ctx
+                            .Equipments
+                            .Single(e => e.ItemID == equipmentId && e.OwnerID == _userId);
+                ctx.Equipments.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
