@@ -35,7 +35,7 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
+        
         public IEnumerable<CharacterListItem> GetCharacters()
         {
             using (var ctx = new ApplicationDbContext())
