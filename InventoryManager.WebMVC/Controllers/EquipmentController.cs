@@ -41,6 +41,15 @@ namespace InventoryManager.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateEquipmentService();
+            var model = svc.GetEquipmentById(id);
+
+            return View(model);
+        }
+
         private EquipmentService CreateEquipmentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

@@ -273,6 +273,7 @@
     <Content Include="Views\Character\Delete.cshtml" />
     <Content Include="Views\Equipment\Index.cshtml" />
     <Content Include="Views\Equipment\Create.cshtml" />
+    <Content Include="Views\Equipment\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

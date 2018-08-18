@@ -61,5 +61,27 @@ namespace InventoryManager.Services
                 return query.ToArray();
             }
         }
+
+        public EquipmentDetails GetEquipmentById(int itemId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+                var entity =
+                      ctx
+                         .Equipments
+                         .Single(e => e.ItemID == itemId && e.OwnerID == _userId);
+                return
+                    new EquipmentDetails
+                    {
+                        ItemID = entity.ItemID,
+                        ItemName = entity.ItemName,
+                        ItemType = entity.ItemType,
+                        ItemDescription = entity.ItemDescription,
+                        ItemValue = entity.ItemValue,
+                        Currency = entity.Currency,
+                    };
+            }
+        }
     }
 }
