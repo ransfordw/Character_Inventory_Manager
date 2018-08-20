@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Services
 {
-    public class EquipmentService
+    public class EquipmentService : IEquipmentService
     {
         private readonly Guid _userId;
 

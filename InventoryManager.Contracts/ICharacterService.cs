@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Contracts
 {
-    public class Class1
+    public class ICharacterService
     {
     }
 }

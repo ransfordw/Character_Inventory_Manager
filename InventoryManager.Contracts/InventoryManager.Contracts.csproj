@@ -53,13 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ICharacterService.cs" />
     <Compile Include="IEquipmentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryManager.Models\InventoryManager.Models.csproj">
+      <Project>{d3fe5b82-5f72-44eb-b131-91d52c3c654f}</Project>
+      <Name>InventoryManager.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryMangager.Data\InventoryManager.Data.csproj">
+      <Project>{697d0510-4971-4d07-bf06-23d19c082a2c}</Project>
+      <Name>InventoryManager.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

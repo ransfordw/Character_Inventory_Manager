@@ -61,12 +61,26 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="EquipmentServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryManager.Contracts\InventoryManager.Contracts.csproj">
+      <Project>{090A72E8-F955-4B29-A49C-C604506E801D}</Project>
+      <Name>InventoryManager.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryManager.Models\InventoryManager.Models.csproj">
+      <Project>{d3fe5b82-5f72-44eb-b131-91d52c3c654f}</Project>
+      <Name>InventoryManager.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryManager.Services\InventoryManager.Services.csproj">
+      <Project>{813991cf-71f6-454b-a2ab-a46e5cab8f43}</Project>
+      <Name>InventoryManager.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
