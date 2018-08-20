@@ -53,6 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backpack\BackpackItemCreate.cs" />
+    <Compile Include="Backpack\BackpackItemDetails.cs" />
+    <Compile Include="Backpack\BackpackItemEdit.cs" />
+    <Compile Include="Backpack\BackpackItemList.cs" />
     <Compile Include="CharacterModels\CharacterCreate.cs" />
     <Compile Include="CharacterModels\CharacterDetail.cs" />
     <Compile Include="CharacterModels\CharacterEdit.cs" />

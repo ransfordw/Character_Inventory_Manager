@@ -35,7 +35,7 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        
+
         public IEnumerable<CharacterListItem> GetCharacters()
         {
             using (var ctx = new ApplicationDbContext())
@@ -81,20 +81,21 @@ namespace InventoryManager.Services
         public bool UpdateNote(CharacterEdit model)
         {
             using (var ctx = new ApplicationDbContext())
-            { var entity =
-                        ctx
-                            .Characters
-                            .Single(e => e.CharacterID == model.CharacterID && e.OwnerID == _userId);
+            {
+                var entity =
+                          ctx
+                              .Characters
+                              .Single(e => e.CharacterID == model.CharacterID && e.OwnerID == _userId);
 
                 entity.CharacterName = model.CharacterName;
                 entity.CharacterClass = model.CharacterClass;
                 entity.CharacterRace = model.CharacterRace;
 
                 return ctx.SaveChanges() == 1;
-            } 
+            }
         }
 
-        public bool DeleteCharacter (int characterId)
+        public bool DeleteCharacter(int characterId)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -107,5 +108,37 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public CharacterDetail GetCharacterByIdAgain(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+                var character = GetCharacter(ctx, id);
+                var equipmentService = new EquipmentService(_userId, id);
+
+                return
+                    new CharacterDetail
+                    {
+                        CharacterID = character.CharacterID,
+                        CharacterName = character.CharacterName,
+                        CharacterClass = character.CharacterClass,
+                        CharacterRace = character.CharacterRace,
+                        //Equipment = equipmentService.GetAllItemsByCharacterId(id)
+                    };
+            }
+        }
+
+        private Character GetCharacter(ApplicationDbContext context, int id)
+        {
+            using (context)
+            {
+                return
+                    context
+                         .Characters
+                         .SingleOrDefault(e => e.CharacterID == id);
+            }
+        }
+        
     }
 }

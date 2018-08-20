@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackpackService.cs" />
     <Compile Include="CharacterService.cs" />
     <Compile Include="EquipmentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

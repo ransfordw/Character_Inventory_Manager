@@ -13,10 +13,17 @@ namespace InventoryManager.Services
     public class EquipmentService : IEquipmentService
     {
         private readonly Guid _userId;
+        private readonly int _characterId;
 
         public EquipmentService(Guid userId)
         {
             _userId = userId;
+        }
+
+        public EquipmentService(Guid userId, int id)
+        {
+            _userId = userId;
+            _characterId = id;
         }
 
         public bool CreateEquipment(EquipmentCreate model)
@@ -117,5 +124,7 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+
     }
 }
