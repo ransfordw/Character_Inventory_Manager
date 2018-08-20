@@ -28,6 +28,8 @@ namespace InventoryManager.Services
                 ItemDescription = model.ItemDescription,
                 ItemValue = model.ItemValue,
                 Currency = model.Currency,
+                CharacterID = model.CharacterID,
+                ItemID = model.ItemID,
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -56,7 +58,8 @@ namespace InventoryManager.Services
                                         ItemType = e.ItemType,
                                         ItemDescription = e.ItemDescription,
                                         ItemValue = e.ItemValue,
-                                        Currency = e.Currency,
+                                        Currency = e.Equipment.Currency,
+                                        
                                     }
                             );
                 return query.ToArray();
@@ -83,6 +86,32 @@ namespace InventoryManager.Services
                             Currency = entity.Currency,
                         };
                 
+            }
+        }
+
+        public IEnumerable<BackpackItemList> GetBackpackItemByCharacterId ()
+        {
+            
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                        ctx
+                            .BackpackItems
+                            .Where(e => e.OwnerID == _userId /*&& e.CharacterID == characterId*/)
+                            .Select(
+                                e =>
+                                    new BackpackItemList
+                                    {
+                                        BackpackID = e.BackpackID,
+                                        CharacterID = e.CharacterID,
+                                        ItemName = e.ItemName,
+                                        ItemType = e.ItemType,
+                                        ItemDescription = e.ItemDescription,
+                                        ItemValue = e.ItemValue,
+                                        Currency = e.Currency,
+                                    }
+                            );
+                return query.ToArray();
             }
         }
 

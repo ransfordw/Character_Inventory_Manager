@@ -10,6 +10,8 @@ namespace InventoryManager.Models.Backpack
 {
     public class BackpackItemCreate
     {
+        public int CharacterID { get; set; }
+        public int ItemID { get; set; }
         [Required]
         [Display(Name = "Item Name")]
         public string ItemName { get; set; }

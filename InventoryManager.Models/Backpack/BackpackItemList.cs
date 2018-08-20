@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,10 @@ namespace InventoryManager.Models.Backpack
 {
     public class BackpackItemList
     {
+        [Key]
         public int BackpackID { get; set; }
 
+        [ForeignKey("CharacterID")]
         public int CharacterID { get; set; }
 
         [Display(Name = "Item")]

@@ -14,8 +14,9 @@ namespace InventoryMangager.Data
         [Key]
         public int BackpackID { get; set; }
 
-        [ForeignKey("CharacterID")]
         public int CharacterID { get; set; }
+
+        public int ItemID { get; set; }
 
         [Required]
         public Guid OwnerID { get; set; }
@@ -38,5 +39,8 @@ namespace InventoryMangager.Data
 
         [Required]
         public Currency Currency { get; set; }
+
+        public virtual Character Character { get; set; }
+        public virtual Equipment Equipment { get; set; }
     }
 }
