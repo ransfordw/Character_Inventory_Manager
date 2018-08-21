@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManager.Models.Item
+namespace InventoryManager.Models.ItemModels
 {
     public class ItemListItem
     {

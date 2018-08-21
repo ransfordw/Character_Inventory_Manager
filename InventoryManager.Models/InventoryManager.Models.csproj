@@ -58,14 +58,15 @@
     <Compile Include="Backpack\BackpackDetails.cs" />
     <Compile Include="Backpack\BackpackEdit.cs" />
     <Compile Include="Backpack\BackpackList.cs" />
+    <Compile Include="Backpack\CharacterBackpackList.cs" />
     <Compile Include="CharacterModels\CharacterCreate.cs" />
     <Compile Include="CharacterModels\CharacterDetail.cs" />
     <Compile Include="CharacterModels\CharacterEdit.cs" />
     <Compile Include="CharacterModels\CharacterListItem.cs" />
-    <Compile Include="Item\ItemCreate.cs" />
-    <Compile Include="Item\ItemDetails.cs" />
-    <Compile Include="Item\ItemEdit.cs" />
-    <Compile Include="Item\ItemListItem.cs" />
+    <Compile Include="ItemModels\ItemCreate.cs" />
+    <Compile Include="ItemModels\ItemDetails.cs" />
+    <Compile Include="ItemModels\ItemEdit.cs" />
+    <Compile Include="ItemModels\ItemListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

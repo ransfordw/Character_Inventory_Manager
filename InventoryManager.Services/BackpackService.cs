@@ -77,22 +77,22 @@ namespace InventoryManager.Services
 
 
 
-        //public IEnumerable<BackpackList> GetBackpackByCharacterId ()
+        //public IEnumerable<CharacterBackpackList> GetBackpackByCharacterId()
         //{
-            
+
         //    using (var ctx = new ApplicationDbContext())
         //    {
         //        var query =
         //                ctx
         //                    .Backpacks
-        //                    .Where(e => e.OwnerID == _userId /*&& e.CharacterID == characterId*/)
+        //                    .Where(e => e.OwnerID == _userId )
         //                    .Select(
         //                        e =>
-        //                            new BackpackList
+        //                            new CharacterBackpackList
         //                            {
         //                                BackpackID = e.BackpackID,
         //                                CharacterID = e.CharacterID,
-        //                                ItemID = e.ItemID,
+        //                                CharacterName = e.CharacterName,
         //                            }
         //                    );
         //        return query.ToArray();

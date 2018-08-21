@@ -1,4 +1,4 @@
-﻿using InventoryManager.Models.Item;
+﻿using InventoryManager.Models.ItemModels;
 using InventoryManager.Services;
 using Microsoft.AspNet.Identity;
 using System;

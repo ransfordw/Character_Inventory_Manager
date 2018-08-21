@@ -1,6 +1,6 @@
 ﻿using InventoryManager.Contracts;
 using InventoryManager.Data;
-using InventoryManager.Models.Item;
+using InventoryManager.Models.ItemModels;
 using InventoryMangager.Data;
 using System;
 using System.Collections.Generic;

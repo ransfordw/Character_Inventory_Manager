@@ -6,30 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManager.Models.Item
+namespace InventoryManager.Models.ItemModels
 {
-    public class ItemCreate
+    public class ItemDetails
     {
-        [Required]
-        [Display(Name = "Name")]
+        public int ItemID { get; set; }
+        [Display(Name = "Item Name")]
         public string ItemName { get; set; }
-
-        [Required]
-        [Display(Name = "Select a Type")]
+        [Display(Name = "Type")]
         public ItemType ItemType { get; set; }
-
-        [Required]
         [Display(Name = "Description")]
         public string ItemDescription { get; set; }
-
-        [Required]
         [Display(Name = "Value")]
         public int ItemValue { get; set; }
-
-        [Required]
-        [Display(Name = "Select a type of Currency")]
         public Currency Currency { get; set; }
 
-        public override string ToString() => ItemName;
+        public override string ToString() => $"[{ItemID }] {ItemName }";
     }
 }

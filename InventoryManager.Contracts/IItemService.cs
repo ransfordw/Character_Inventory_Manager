@@ -1,4 +1,4 @@
-﻿using InventoryManager.Models.Item;
+﻿using InventoryManager.Models.ItemModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

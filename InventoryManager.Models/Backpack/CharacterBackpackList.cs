@@ -6,19 +6,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManager.Models.Item
+namespace InventoryManager.Models.Backpack
 {
-    public class ItemEdit
+    public class CharacterBackpackList
     {
-        public int ItemID { get; set; }
-        [Display(Name = "Name")]
+        public int BackpackID { get; set; }
+        public int CharacterID { get; set; }
+        public string CharacterName { get; set; }
+        [Required]
+        [Display(Name = "Item Name")]
         public string ItemName { get; set; }
-        [Display(Name = "Type")]
+
+        [Required]
+        [Display(Name = "Type of Item")]
         public ItemType ItemType { get; set; }
+
+        [Required]
         [Display(Name = "Description")]
         public string ItemDescription { get; set; }
+
+        [Required]
         [Display(Name = "Value")]
         public int ItemValue { get; set; }
+
+        [Required]
         public Currency Currency { get; set; }
+
+        public virtual Character Character { get; set; }
+        public virtual Item Item { get; set; }
     }
 }
