@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.Designer.cs">
       <DependentUpon>201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808210147034_updatedTextContent.cs" />
+    <Compile Include="Migrations\201808210147034_updatedTextContent.Designer.cs">
+      <DependentUpon>201808210147034_updatedTextContent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.resx">
       <DependentUpon>201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808210147034_updatedTextContent.resx">
+      <DependentUpon>201808210147034_updatedTextContent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
