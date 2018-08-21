@@ -77,27 +77,27 @@ namespace InventoryManager.Services
 
 
 
-        public IEnumerable<BackpackList> GetBackpackByCharacterId ()
-        {
+        //public IEnumerable<BackpackList> GetBackpackByCharacterId ()
+        //{
             
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                        ctx
-                            .Backpacks
-                            .Where(e => e.OwnerID == _userId /*&& e.CharacterID == characterId*/)
-                            .Select(
-                                e =>
-                                    new BackpackList
-                                    {
-                                        BackpackID = e.BackpackID,
-                                        CharacterID = e.CharacterID,
-                                        ItemID = e.ItemID,
-                                    }
-                            );
-                return query.ToArray();
-            }
-        }
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //                ctx
+        //                    .Backpacks
+        //                    .Where(e => e.OwnerID == _userId /*&& e.CharacterID == characterId*/)
+        //                    .Select(
+        //                        e =>
+        //                            new BackpackList
+        //                            {
+        //                                BackpackID = e.BackpackID,
+        //                                CharacterID = e.CharacterID,
+        //                                ItemID = e.ItemID,
+        //                            }
+        //                    );
+        //        return query.ToArray();
+        //    }
+        //}
 
         //public bool UpdateBackpack(BackpackEdit model)
         //{
@@ -132,5 +132,7 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+
     }
 }

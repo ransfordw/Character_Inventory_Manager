@@ -12,6 +12,7 @@ namespace InventoryManager.WebMVC.Controllers
 {
     public class BackpackController : Controller
     {
+
         // GET: Backpack
         public ActionResult Index()
         {
@@ -23,26 +24,42 @@ namespace InventoryManager.WebMVC.Controllers
 
         public ActionResult Create()
         {
+            var characterService = CreateCharacterService();
+            var itemService = CreateItemService();
+
+            ViewBag.CharacterID = new SelectList(characterService.GetCharacters(), "CharacterID", "CharacterName");
+            ViewBag.ItemID = new SelectList(itemService.GetItems(), "ItemID", "ItemName");
+
             return View();
 
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BackpackID,ItemID,CharacterID")]BackpackCreate model)
+        public ActionResult Create(BackpackCreate model)
         {
-
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateBackpackService();
+            var characterService = CreateCharacterService();
+            var itemService = CreateItemService();
+
+            characterService.GetCharacterById(model.CharacterID);
+            itemService.GetItemById(model.ItemID);
+
+            //ViewData["CharacterID"] = characterService.GetCharacters();
+            //ViewData["ItemID"] = new SelectList(itemService.GetItems(), "ItemID", "ItemName", model.ItemID);
+
+            ViewBag.CharacterID = new SelectList(characterService.GetCharacters(), "CharacterID", "CharacterName", model.CharacterID);
+            ViewBag.ItemID = new SelectList(itemService.GetItems(), "ItemID", "ItemName", model.ItemID);
 
             if (service.CreateBackpack(model))
             {
-                TempData["SaveResult"] = "Your Character was created.";
+                TempData["SaveResult"] = "Your Backpack was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Character could not be created.");
+            ModelState.AddModelError("", "Backpack could not be created.");
 
             return View(model);
         }
@@ -51,6 +68,20 @@ namespace InventoryManager.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new BackpackService(userId);
+            return service;
+        }
+
+        private ItemService CreateItemService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ItemService(userId);
+            return service;
+        }
+
+        private CharacterService CreateCharacterService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CharacterService(userId);
             return service;
         }
     }
