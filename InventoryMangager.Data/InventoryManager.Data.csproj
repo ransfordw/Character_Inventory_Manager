@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackpackItem.cs" />
+    <Compile Include="Backpack.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201808202024514_addedForeidnKey.Designer.cs">
       <DependentUpon>201808202024514_addedForeidnKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.cs" />
+    <Compile Include="Migrations\201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.Designer.cs">
+      <DependentUpon>201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -99,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808202024514_addedForeidnKey.resx">
       <DependentUpon>201808202024514_addedForeidnKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.resx">
+      <DependentUpon>201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

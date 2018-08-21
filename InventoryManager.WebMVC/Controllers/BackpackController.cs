@@ -9,14 +9,14 @@ using System.Web.Mvc;
 
 namespace InventoryManager.WebMVC.Controllers
 {
-    public class BackpackItemController : Controller
+    public class BackpackController : Controller
     {
-        // GET: BackpackItem
+        // GET: Backpack
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new BackpackService(userId);
-            var model = service.GetBackpackItems();
+            var model = service.GetBackpacks();
             return View(model);
         }
 
@@ -28,12 +28,12 @@ namespace InventoryManager.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BackpackItemCreate item)
+        public ActionResult Create(BackpackCreate item)
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new BackpackService(userId);
             
-            if (service.CreateBackpackItem(item))
+            if (service.CreateBackpack(item))
             {
                 return RedirectToAction("Index");
             }

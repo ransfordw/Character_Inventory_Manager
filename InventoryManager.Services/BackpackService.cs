@@ -18,132 +18,114 @@ namespace InventoryManager.Services
             _userId = userId;
         }
 
-        public bool CreateBackpackItem(BackpackItemCreate model)
+        public bool CreateBackpack(BackpackCreate model)
         {
-            var entity = new BackpackItem()
+            var entity = new Backpack()
             {
                 OwnerID = _userId,
-                ItemName = model.ItemName,
-                ItemType = model.ItemType,
-                ItemDescription = model.ItemDescription,
-                ItemValue = model.ItemValue,
-                Currency = model.Currency,
                 CharacterID = model.CharacterID,
                 ItemID = model.ItemID,
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.BackpackItems.Add(entity);
+                ctx.Backpacks.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
 
         }
 
-        public IEnumerable<BackpackItemList> GetBackpackItems()
+        public IEnumerable<BackpackList> GetBackpacks()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                         ctx
-                            .BackpackItems
+                            .Backpacks
                             .Where(e => e.OwnerID == _userId)
                             .Select(
                                 e =>
-                                    new BackpackItemList
+                                    new BackpackList
                                     {
                                         BackpackID = e.BackpackID,
                                         CharacterID = e.CharacterID,
-                                        ItemName = e.ItemName,
-                                        ItemType = e.ItemType,
-                                        ItemDescription = e.ItemDescription,
-                                        ItemValue = e.ItemValue,
-                                        Currency = e.Equipment.Currency,
-                                        
+                                        ItemID = e.ItemID
                                     }
                             );
                 return query.ToArray();
             }
         }
 
-        public BackpackItemDetails GetBackpackItemById(int backpackId, int characterId)
+        public BackpackDetails GetBackpackById(int backpackId, int characterId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                         ctx
-                            .BackpackItems
+                            .Backpacks
                             .Single(e => e.BackpackID == backpackId && e.CharacterID == characterId && e.OwnerID == _userId);
                 return
-                        new BackpackItemDetails
+                        new BackpackDetails
                         {
                             BackpackID = entity.BackpackID,
                             CharacterID = entity.CharacterID,
-                            ItemName = entity.ItemName,
-                            ItemType = entity.ItemType,
-                            ItemDescription = entity.ItemDescription,
-                            ItemValue = entity.ItemValue,
-                            Currency = entity.Currency,
+                            ItemID = entity.ItemID,
                         };
                 
             }
         }
 
-        public IEnumerable<BackpackItemList> GetBackpackItemByCharacterId ()
+        public IEnumerable<BackpackList> GetBackpackByCharacterId ()
         {
             
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                         ctx
-                            .BackpackItems
+                            .Backpacks
                             .Where(e => e.OwnerID == _userId /*&& e.CharacterID == characterId*/)
                             .Select(
                                 e =>
-                                    new BackpackItemList
+                                    new BackpackList
                                     {
                                         BackpackID = e.BackpackID,
                                         CharacterID = e.CharacterID,
-                                        ItemName = e.ItemName,
-                                        ItemType = e.ItemType,
-                                        ItemDescription = e.ItemDescription,
-                                        ItemValue = e.ItemValue,
-                                        Currency = e.Currency,
+                                        ItemID = e.ItemID,
                                     }
                             );
                 return query.ToArray();
             }
         }
 
-        public bool UpdateBackpackItem(BackpackItemEdit model)
+        //public bool UpdateBackpack(BackpackEdit model)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //               ctx
+        //                    .Backpacks
+        //                    .Single(e => e.BackpackID == model.BackpackID && e.CharacterID == model.CharacterID && e.OwnerID == _userId);
+
+
+        //        entity.ItemName = model.ItemName;
+        //        entity.ItemType = model.ItemType;
+        //        entity.ItemDescription = model.ItemDescription;
+        //        entity.ItemValue = model.ItemValue;
+        //        entity.Currency = model.Currency;
+
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
+
+        public bool DeleteBackpack(int backpackId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                        ctx
-                            .BackpackItems
-                            .Single(e => e.BackpackID == model.BackpackID && e.CharacterID == model.CharacterID && e.OwnerID == _userId);
-
-
-                entity.ItemName = model.ItemName;
-                entity.ItemType = model.ItemType;
-                entity.ItemDescription = model.ItemDescription;
-                entity.ItemValue = model.ItemValue;
-                entity.Currency = model.Currency;
-
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
-        public bool DeleteBackpackItem(int backpackItemId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                       ctx
-                            .BackpackItems
-                            .Single(e => e.BackpackID == backpackItemId && e.OwnerID == _userId);
-                ctx.BackpackItems.Remove(entity);
+                            .Backpacks
+                            .Single(e => e.BackpackID == backpackId && e.OwnerID == _userId);
+                ctx.Backpacks.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

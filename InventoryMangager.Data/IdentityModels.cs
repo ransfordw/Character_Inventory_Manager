@@ -33,7 +33,7 @@ namespace InventoryManager.Data
         }
         public DbSet<Character> Characters { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
-        public DbSet<BackpackItem> BackpackItems { get; set; }
+        public DbSet<Backpack> Backpacks { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
