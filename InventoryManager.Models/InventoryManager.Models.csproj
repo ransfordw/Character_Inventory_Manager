@@ -61,10 +61,10 @@
     <Compile Include="CharacterModels\CharacterDetail.cs" />
     <Compile Include="CharacterModels\CharacterEdit.cs" />
     <Compile Include="CharacterModels\CharacterListItem.cs" />
-    <Compile Include="Equipment\EquipmentCreate.cs" />
-    <Compile Include="Equipment\EquipmentDetails.cs" />
-    <Compile Include="Equipment\EquipmentEdit.cs" />
-    <Compile Include="Equipment\EquipmentListItem.cs" />
+    <Compile Include="Item\ItemCreate.cs" />
+    <Compile Include="Item\ItemDetails.cs" />
+    <Compile Include="Item\ItemEdit.cs" />
+    <Compile Include="Item\ItemListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

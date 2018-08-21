@@ -22,6 +22,6 @@ namespace InventoryMangager.Data
         public Guid OwnerID { get; set; }
 
         public virtual Character Character { get; set; }
-        public virtual Equipment Equipment { get; set; }
+        public virtual Item Item { get; set; }
     }
 }

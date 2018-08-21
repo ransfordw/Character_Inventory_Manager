@@ -1,4 +1,4 @@
-﻿using InventoryManager.Models.Equipment;
+﻿using InventoryManager.Models.Item;
 using InventoryManager.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -9,14 +9,14 @@ using System.Web.Mvc;
 
 namespace InventoryManager.WebMVC.Controllers
 {
-    public class EquipmentController : Controller
+    public class ItemController : Controller
     {
-        // GET: Equipment
+        // GET: Item
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new EquipmentService(userId);
-            var model = service.GetEquipments();
+            var service = new ItemService(userId);
+            var model = service.GetItems();
             return View(model);
         }
         public ActionResult Create()
@@ -26,36 +26,36 @@ namespace InventoryManager.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EquipmentCreate model)
+        public ActionResult Create(ItemCreate model)
         {
             if (!ModelState.IsValid) return View(model);
-            var service = CreateEquipmentService();
+            var service = CreateItemService();
 
-            if (service.CreateEquipment(model))
+            if (service.CreateItem(model))
             {
-                TempData["SaveResult"] = "Your Equipment was created.";
+                TempData["SaveResult"] = "Your Item was created.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Equipment could not be created.");
+            ModelState.AddModelError("", "Item could not be created.");
 
             return View(model);
         }
 
         public ActionResult Details(int id)
         {
-            var svc = CreateEquipmentService();
-            var model = svc.GetEquipmentById(id);
+            var svc = CreateItemService();
+            var model = svc.GetItemById(id);//this was item before the change
 
             return View(model);
         }
         
         public ActionResult Edit(int id)
         {
-            var service = CreateEquipmentService();
-            var detail = service.GetEquipmentById(id);
+            var service = CreateItemService();
+            var detail = service.GetItemById(id);
             var model =
-                new EquipmentEdit
+                new ItemEdit
                 {
                     ItemID = detail.ItemID,
                     ItemName = detail.ItemName,
@@ -69,7 +69,7 @@ namespace InventoryManager.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit (int id, EquipmentEdit model)
+        public ActionResult Edit (int id, ItemEdit model)
         {
             if (!ModelState.IsValid) return View(model);
             if(model.ItemID != id)
@@ -78,21 +78,21 @@ namespace InventoryManager.WebMVC.Controllers
                 return View(model);
             }
 
-            var service = CreateEquipmentService();
+            var service = CreateItemService();
 
-            if (service.UpdateEquipment(model))
+            if (service.UpdateItem(model))
             {
-                TempData["SaveResult"] = "Your equipment was updated.";
+                TempData["SaveResult"] = "Your Item was updated.";
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "Your equipment could not be updated.");
+            ModelState.AddModelError("", "Your Item could not be updated.");
             return View();
         }
 
         public ActionResult Delete(int id)
         {
-            var svc = CreateEquipmentService();
-            var model = svc.GetEquipmentById(id);
+            var svc = CreateItemService();
+            var model = svc.GetItemById(id);
 
             return View(model);
         }
@@ -102,20 +102,20 @@ namespace InventoryManager.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateEquipmentService();
+            var service = CreateItemService();
 
-            service.DeleteEquipment(id);
+            service.DeleteItem(id);
 
-            TempData["SaveResult"] = "Your equipment was deleted.";
+            TempData["SaveResult"] = "Your Item was deleted.";
 
             return RedirectToAction("Index");
         }
 
 
-        private EquipmentService CreateEquipmentService()
+        private ItemService CreateItemService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new EquipmentService(userId);
+            var service = new ItemService(userId);
             return service;
         }
     }

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManager.Models.Equipment
+namespace InventoryManager.Models.Item
 {
-    public class EquipmentEdit
+    public class ItemEdit
     {
         public int ItemID { get; set; }
         [Display(Name = "Name")]

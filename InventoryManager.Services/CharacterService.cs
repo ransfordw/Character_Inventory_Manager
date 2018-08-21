@@ -115,7 +115,7 @@ namespace InventoryManager.Services
             {
 
                 var character = GetCharacter(ctx, id);
-                var equipmentService = new EquipmentService(_userId, id);
+                var itemService = new ItemService(_userId, id);
 
                 return
                     new CharacterDetail
@@ -124,7 +124,7 @@ namespace InventoryManager.Services
                         CharacterName = character.CharacterName,
                         CharacterClass = character.CharacterClass,
                         CharacterRace = character.CharacterRace,
-                        //Equipment = equipmentService.GetAllItemsByCharacterId(id)
+                        //Item = itemService.GetAllItemsByCharacterId(id)
                     };
             }
         }

@@ -1,5 +1,6 @@
 ﻿using InventoryManager.Models.Backpack;
 using InventoryManager.Services;
+using InventoryMangager.Data;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -28,17 +29,29 @@ namespace InventoryManager.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BackpackCreate item)
+        public ActionResult Create([Bind(Include = "BackpackID,ItemID,CharacterID")]BackpackCreate model)
+        {
+
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateBackpackService();
+
+            if (service.CreateBackpack(model))
+            {
+                TempData["SaveResult"] = "Your Character was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Character could not be created.");
+
+            return View(model);
+        }
+
+        private BackpackService CreateBackpackService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new BackpackService(userId);
-            
-            if (service.CreateBackpack(item))
-            {
-                return RedirectToAction("Index");
-            }
-
-            return View();
+            return service;
         }
     }
 }

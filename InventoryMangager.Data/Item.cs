@@ -1,24 +1,39 @@
-﻿using InventoryMangager.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManager.Models.Equipment
+namespace InventoryMangager.Data
 {
-    public class EquipmentListItem
+    public enum Currency { Copper, Silver, Gold, Platinum}
+    public enum ItemType { Weapon, Armor, Materials, Potions, Misc}
+    public class Item
     {
+        [Key]
         public int ItemID { get; set; }
-        [Display(Name = "Item")]
+
+        [Required]
+        public Guid OwnerID { get; set; }
+
+        [Required]
+        [Display(Name = "Item Name")]
         public string ItemName { get; set; }
-        [Display(Name = "Type")]
+
+        [Required]
+        [Display(Name = "Type of Item")]
         public ItemType ItemType { get; set; }
+
+        [Required]
         [Display(Name = "Description")]
         public string ItemDescription { get; set; }
+
+        [Required]
         [Display(Name = "Value")]
         public int ItemValue { get; set; }
+
+        [Required]
         public Currency Currency { get; set; }
     }
 }

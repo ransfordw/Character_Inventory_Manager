@@ -1,6 +1,6 @@
 ﻿using InventoryManager.Contracts;
 using InventoryManager.Data;
-using InventoryManager.Models.Equipment;
+using InventoryManager.Models.Item;
 using InventoryMangager.Data;
 using System;
 using System.Collections.Generic;
@@ -10,25 +10,25 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Services
 {
-    public class EquipmentService : IEquipmentService
+    public class ItemService : IItemService
     {
         private readonly Guid _userId;
         private readonly int _characterId;
 
-        public EquipmentService(Guid userId)
+        public ItemService(Guid userId)
         {
             _userId = userId;
         }
 
-        public EquipmentService(Guid userId, int id)
+        public ItemService(Guid userId, int id)
         {
             _userId = userId;
             _characterId = id;
         }
 
-        public bool CreateEquipment(EquipmentCreate model)
+        public bool CreateItem(ItemCreate model)
         {
-            var entity = new Equipment()
+            var entity = new Item()
             {
                 OwnerID = _userId,
                 ItemName = model.ItemName,
@@ -40,22 +40,22 @@ namespace InventoryManager.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Equipments.Add(entity);
+                ctx.Items.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<EquipmentListItem> GetEquipments()
+        public IEnumerable<ItemListItem> GetItems()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Equipments
+                        .Items
                         .Where(e => e.OwnerID == _userId)
                         .Select(
                              e =>
-                                new EquipmentListItem
+                                new ItemListItem
                                 {
                                     ItemID = e.ItemID,
                                     ItemName = e.ItemName,
@@ -69,17 +69,17 @@ namespace InventoryManager.Services
             }
         }
 
-        public EquipmentDetails GetEquipmentById(int itemId)
+        public ItemDetails GetItemById(int itemId)
         {
             using (var ctx = new ApplicationDbContext())
             {
 
                 var entity =
                       ctx
-                         .Equipments
+                         .Items
                          .Single(e => e.ItemID == itemId && e.OwnerID == _userId);
                 return
-                    new EquipmentDetails
+                    new ItemDetails
                     {
                         ItemID = entity.ItemID,
                         ItemName = entity.ItemName,
@@ -91,13 +91,13 @@ namespace InventoryManager.Services
             }
         }
 
-        public bool UpdateEquipment(EquipmentEdit model)
+        public bool UpdateItem(ItemEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                        ctx
-                            .Equipments
+                            .Items
                             .Single(e => e.ItemID == model.ItemID && e.OwnerID == _userId);
 
                 
@@ -111,15 +111,15 @@ namespace InventoryManager.Services
             }
         }
 
-        public bool DeleteEquipment(int equipmentId)
+        public bool DeleteItem(int itemId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                        ctx
-                            .Equipments
-                            .Single(e => e.ItemID == equipmentId && e.OwnerID == _userId);
-                ctx.Equipments.Remove(entity);
+                            .Items
+                            .Single(e => e.ItemID == itemId && e.OwnerID == _userId);
+                ctx.Items.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

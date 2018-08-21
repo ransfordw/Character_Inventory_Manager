@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Backpack.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="Equipment.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\201808161336160_InitialCreate.cs" />
     <Compile Include="Migrations\201808161336160_InitialCreate.Designer.cs">
@@ -80,6 +80,14 @@
     <Compile Include="Migrations\201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.cs" />
     <Compile Include="Migrations\201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.Designer.cs">
       <DependentUpon>201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808210026473_renamedEquipmentToItemAndDeletedUnusedTestClass.cs" />
+    <Compile Include="Migrations\201808210026473_renamedEquipmentToItemAndDeletedUnusedTestClass.Designer.cs">
+      <DependentUpon>201808210026473_renamedEquipmentToItemAndDeletedUnusedTestClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.cs" />
+    <Compile Include="Migrations\201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.Designer.cs">
+      <DependentUpon>201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +114,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.resx">
       <DependentUpon>201808210007209_renamedBackpackItemToBackpackAndDeletedOldViews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808210026473_renamedEquipmentToItemAndDeletedUnusedTestClass.resx">
+      <DependentUpon>201808210026473_renamedEquipmentToItemAndDeletedUnusedTestClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.resx">
+      <DependentUpon>201808210057565_moreRenamingAndDebuggingOfBackpackCRUD.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -75,6 +75,8 @@ namespace InventoryManager.Services
             }
         }
 
+
+
         public IEnumerable<BackpackList> GetBackpackByCharacterId ()
         {
             
