@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackpackService.cs" />
+    <Compile Include="CharacterBackpackService.cs" />
     <Compile Include="CharacterService.cs" />
     <Compile Include="ItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -46,10 +46,7 @@ namespace InventoryManager.WebMVC.Controllers
 
             characterService.GetCharacterById(model.CharacterID);
             itemService.GetItemById(model.ItemID);
-
-            //ViewData["CharacterID"] = characterService.GetCharacters();
-            //ViewData["ItemID"] = new SelectList(itemService.GetItems(), "ItemID", "ItemName", model.ItemID);
-
+            
             ViewBag.CharacterID = new SelectList(characterService.GetCharacters(), "CharacterID", "CharacterName", model.CharacterID);
             ViewBag.ItemID = new SelectList(itemService.GetItems(), "ItemID", "ItemName", model.ItemID);
 
@@ -61,6 +58,27 @@ namespace InventoryManager.WebMVC.Controllers
 
             ModelState.AddModelError("", "Backpack could not be created.");
 
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateBackpackService();
+            var model = svc.GetBackpackItemByCharacterId(id);
+
+            return View(model);
+        }
+
+        //public ActionResult GetCharaterBackpackByCharacterID()
+        //{
+
+        //}
+
+        public ActionResult CharacterBackpack(int id)
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new BackpackService(userId);
+            var model = service.GetCharacterBackpack(id);
             return View(model);
         }
 

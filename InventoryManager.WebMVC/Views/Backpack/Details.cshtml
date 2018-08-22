@@ -1,0 +1,58 @@
+﻿@model InventoryManager.Models.Backpack.CharacterBackpackList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CharacterBackpackList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CharacterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemValue)
+            @Html.DisplayFor(model => model.Currency)
+        </dd>
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

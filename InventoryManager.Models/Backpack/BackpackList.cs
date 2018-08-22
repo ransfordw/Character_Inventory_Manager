@@ -17,24 +17,6 @@ namespace InventoryManager.Models.Backpack
 
         public string CharacterName { get; set; }
         public string ItemName { get; set; }
-        //[Required]
-        //[Display(Name = "Item Name")]
-        //public string ItemName { get; set; }
-
-        //[Required]
-        //[Display(Name = "Type of Item")]
-        //public ItemType ItemType { get; set; }
-
-        //[Required]
-        //[Display(Name = "Description")]
-        //public string ItemDescription { get; set; }
-
-        //[Required]
-        //[Display(Name = "Value")]
-        //public int ItemValue { get; set; }
-
-        //[Required]
-        //public Currency Currency { get; set; }
-
+        
     }
 }

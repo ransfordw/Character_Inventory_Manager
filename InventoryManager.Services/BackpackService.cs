@@ -12,6 +12,7 @@ namespace InventoryManager.Services
     public class BackpackService
     {
         private readonly Guid _userId;
+        private List<CharacterBackpackList> _characterBackpackItems = new List<CharacterBackpackList>();
 
         public BackpackService(Guid userId)
         {
@@ -58,46 +59,69 @@ namespace InventoryManager.Services
             }
         }
 
-        public BackpackDetails GetBackpackById(int backpackId, int characterId)
+        public CharacterBackpackList GetBackpackItemByCharacterId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                         ctx
-                            .Backpacks
-                            .Single(e => e.BackpackID == backpackId && e.CharacterID == characterId && e.OwnerID == _userId);
+                            .Characters
+                            .Single(e => e.CharacterID == id && e.OwnerID == _userId);
+                var itemEntity =
+                        ctx
+                            .Items
+                            .Single(i => i.ItemID == id && i.OwnerID == _userId);
                 return
-                        new BackpackDetails
+                        new CharacterBackpackList
                         {
-                            BackpackID = entity.BackpackID,
-                            CharacterID = entity.CharacterID,
-                            ItemID = entity.ItemID,
+                            CharacterName = entity.CharacterName,
+                            ItemType = itemEntity.ItemType,
+                            ItemName = itemEntity.ItemName,
+                            ItemDescription = itemEntity.ItemDescription,
+                            ItemValue = itemEntity.ItemValue,
+                            Currency= itemEntity.Currency,
                         };
                 
             }
         }
 
+        public IEnumerable<CharacterBackpackList> GetCharacterBackpack(int id)
+        {
+            
+            using (var ctx = new ApplicationDbContext())
+            {
+                foreach (Backpack backpack in ctx.Backpacks)
+                {
+                    if (backpack.CharacterID == id)
+                    {
+                        var query = ctx.Items
+                            .Where(i => i.ItemID == backpack.ItemID)
+                            .Select(
+                                   i =>
+                                   new CharacterBackpackList
+                                   {
+                                       ItemType = i.ItemType,
+                                       ItemName = i.ItemName,
+                                       ItemDescription = i.ItemDescription,
+                                       ItemValue = i.ItemValue,
+                                       Currency = i.Currency,
+                                   }
+                            );
+                       
+                        
+                        _characterBackpackItems = query.ToList();
+                    } 
 
+                }
 
-        //public IEnumerable<CharacterBackpackList> GetBackpackByCharacterId()
+            }
+            return _characterBackpackItems;
+        }
+
+        //public CharacterBackpackList QueryBackpacksForItemByCharacterID(int id)
         //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //                ctx
-        //                    .Backpacks
-        //                    .Where(e => e.OwnerID == _userId)
-        //                    .Select(
-        //                        e =>
-        //                            new CharacterBackpackList
-        //                            {
-        //                                BackpackID = e.BackpackID,
-        //                                CharacterID = e.CharacterID,
-        //                                CharacterName = e.CharacterName,
-        //                            }
-        //                    );
-        //        return query.ToArray();
-        //    }
+            
+
         //}
 
         //public bool UpdateBackpack(BackpackEdit model)
@@ -133,7 +157,5 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-
     }
 }

@@ -10,8 +10,9 @@ namespace InventoryManager.Models.Backpack
 {
     public class CharacterBackpackList
     {
-        public int BackpackID { get; set; }
+        [Key]
         public int CharacterID { get; set; }
+        public int BackpackID { get; set; }
         public string CharacterName { get; set; }
         [Required]
         [Display(Name = "Item Name")]
@@ -32,7 +33,5 @@ namespace InventoryManager.Models.Backpack
         [Required]
         public Currency Currency { get; set; }
 
-        public virtual Character Character { get; set; }
-        public virtual Item Item { get; set; }
     }
 }
