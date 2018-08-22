@@ -15,10 +15,8 @@ namespace InventoryManager.Models.Backpack
         public int CharacterID { get; set; }
         public int ItemID { get; set; }
 
-        public virtual Character Character { get; set; }
-        public virtual Item Item { get; set; }
-
-        //public string CharacterName { get; set; }
+        public string CharacterName { get; set; }
+        public string ItemName { get; set; }
         //[Required]
         //[Display(Name = "Item Name")]
         //public string ItemName { get; set; }

@@ -17,7 +17,7 @@ namespace InventoryManager.Services
         {
             _userId = userId;
         }
-
+        
         public bool CreateBackpack(BackpackCreate model)
         {
             var entity = new Backpack()
@@ -49,7 +49,9 @@ namespace InventoryManager.Services
                                     {
                                         BackpackID = e.BackpackID,
                                         CharacterID = e.CharacterID,
-                                        ItemID = e.ItemID
+                                        ItemID = e.ItemID,
+                                        CharacterName = e.Character.CharacterName,
+                                        ItemName = e.Item.ItemName,
                                     }
                             );
                 return query.ToArray();
@@ -79,13 +81,12 @@ namespace InventoryManager.Services
 
         //public IEnumerable<CharacterBackpackList> GetBackpackByCharacterId()
         //{
-
         //    using (var ctx = new ApplicationDbContext())
         //    {
         //        var query =
         //                ctx
         //                    .Backpacks
-        //                    .Where(e => e.OwnerID == _userId )
+        //                    .Where(e => e.OwnerID == _userId)
         //                    .Select(
         //                        e =>
         //                            new CharacterBackpackList
