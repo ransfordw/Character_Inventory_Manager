@@ -4,19 +4,21 @@
     ViewBag.Title = "CharacterBackpack";
 }
 
-<h2>Character Backpack</h2>
+<h2>
+    @foreach (var item in Model)
+    {
+        @Html.DisplayFor(modelItem => item.CharacterName)break;
+    }'s Backpack
+</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        @*<th>
-                @Html.DisplayNameFor(model => model.BackpackID)
-            </th>*@
-        @*<th>
-                @Html.DisplayNameFor(model => model.CharacterName)
-            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.CharacterName)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ItemName)
         </th>
@@ -35,9 +37,9 @@
     @foreach (var item in Model)
     {
         <tr>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.CharacterName)
-                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CharacterName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>

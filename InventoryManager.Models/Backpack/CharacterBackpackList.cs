@@ -10,7 +10,7 @@ namespace InventoryManager.Models.Backpack
 {
     public class CharacterBackpackList
     {
-        [Key]
+       
         public int CharacterID { get; set; }
         public int BackpackID { get; set; }
         public string CharacterName { get; set; }

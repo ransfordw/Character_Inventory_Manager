@@ -114,8 +114,7 @@ namespace InventoryManager.WebMVC.Controllers
 
         public ActionResult CharacterBackpack(int id)
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new BackpackService(userId);
+            var service = CreateBackpackService();
             var model = service.GetCharacterBackpack(id);
             return View(model);
         }

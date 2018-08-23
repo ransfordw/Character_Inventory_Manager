@@ -13,7 +13,7 @@ namespace InventoryManager.Services
     {
         private readonly Guid _userId;
         private List<CharacterBackpackList> _characterBackpackItems = new List<CharacterBackpackList>();
-
+        private List<CharacterBackpackList> _queryableList = new List<CharacterBackpackList>();
         public BackpackService(Guid userId)
         {
             _userId = userId;
@@ -100,6 +100,7 @@ namespace InventoryManager.Services
                                    i =>
                                    new CharacterBackpackList
                                    {
+                                       CharacterName = backpack.Character.CharacterName,
                                        ItemType = i.ItemType,
                                        ItemName = i.ItemName,
                                        ItemDescription = i.ItemDescription,
@@ -107,40 +108,20 @@ namespace InventoryManager.Services
                                        Currency = i.Currency,
                                    }
                             );
-                       
-                        
-                      _characterBackpackItems =  query.ToList();
+
+                        _queryableList =  query.ToList();
+                        foreach (CharacterBackpackList items in _queryableList)
+                        {
+                            _characterBackpackItems.Add(items);
+                        }
                     } 
 
                 }
             }
-            return _characterBackpackItems;
+            //if (_characterBackpackItems != null)
+                return _characterBackpackItems;
+            
         }
-
-        //public CharacterBackpackList QueryBackpacksForItemByCharacterID(int id)
-        //{
-        //    Backpack backpack = new Backpack();
-        //    using (var ctx = new ApplicationDbContext())
-        //        {
-        //            var query = ctx.Items
-        //                   .Where(i => i.ItemID == backpack.ItemID)
-        //                   .Select(
-        //                          i =>
-        //                          new CharacterBackpackList
-        //                          {
-        //                              ItemType = i.ItemType,
-        //                              ItemName = i.ItemName,
-        //                              ItemDescription = i.ItemDescription,
-        //                              ItemValue = i.ItemValue,
-        //                              Currency = i.Currency,
-        //                          }
-        //                   );
-        //        var backpackItem = query.ToList();
-        //        return backpackItem;
-        //        }
-
-        //    CharacterBackpackList characterBackpack = backpackItem;
-        //}
 
         //public bool UpdateBackpack(BackpackEdit model)
         //{
