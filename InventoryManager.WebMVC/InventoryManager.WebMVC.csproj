@@ -280,7 +280,7 @@
     <Content Include="Views\Backpack\Index.cshtml" />
     <Content Include="Views\Backpack\Create.cshtml" />
     <Content Include="Views\Backpack\Details.cshtml" />
-    <Content Include="Views\Backpack\CharacterBackpack.cshtml" />
+    <Content Include="Views\Character\CharacterBackpack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

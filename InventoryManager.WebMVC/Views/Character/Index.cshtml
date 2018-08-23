@@ -47,9 +47,10 @@
             @Html.DisplayFor(modelItem => item.CharacterRace)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CharacterID }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID }) |
             @Html.ActionLink("Details", "Details", new { id = item.CharacterID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })  |
+            @Html.ActionLink("Backpack", "CharacterBackpack", new { id = item.CharacterID })
         </td>
     </tr>
 }

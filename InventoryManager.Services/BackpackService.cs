@@ -95,7 +95,7 @@ namespace InventoryManager.Services
                     if (backpack.CharacterID == id)
                     {
                         var query = ctx.Items
-                            .Where(i => i.ItemID == backpack.ItemID)
+                            .Where(i => i.ItemID == backpack.ItemID )
                             .Select(
                                    i =>
                                    new CharacterBackpackList
@@ -109,19 +109,37 @@ namespace InventoryManager.Services
                             );
                        
                         
-                        _characterBackpackItems = query.ToList();
+                      _characterBackpackItems =  query.ToList();
                     } 
 
                 }
-
             }
             return _characterBackpackItems;
         }
 
         //public CharacterBackpackList QueryBackpacksForItemByCharacterID(int id)
         //{
-            
+        //    Backpack backpack = new Backpack();
+        //    using (var ctx = new ApplicationDbContext())
+        //        {
+        //            var query = ctx.Items
+        //                   .Where(i => i.ItemID == backpack.ItemID)
+        //                   .Select(
+        //                          i =>
+        //                          new CharacterBackpackList
+        //                          {
+        //                              ItemType = i.ItemType,
+        //                              ItemName = i.ItemName,
+        //                              ItemDescription = i.ItemDescription,
+        //                              ItemValue = i.ItemValue,
+        //                              Currency = i.Currency,
+        //                          }
+        //                   );
+        //        var backpackItem = query.ToList();
+        //        return backpackItem;
+        //        }
 
+        //    CharacterBackpackList characterBackpack = backpackItem;
         //}
 
         //public bool UpdateBackpack(BackpackEdit model)

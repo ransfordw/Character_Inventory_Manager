@@ -112,10 +112,25 @@ namespace InventoryManager.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult CharacterBackpack(int id)
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new BackpackService(userId);
+            var model = service.GetCharacterBackpack(id);
+            return View(model);
+        }
+
         private CharacterService CreateCharacterService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CharacterService(userId);
+            return service;
+        }
+
+        private BackpackService CreateBackpackService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new BackpackService(userId);
             return service;
         }
     }
