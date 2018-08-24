@@ -69,19 +69,6 @@ namespace InventoryManager.WebMVC.Controllers
             return View(model);
         }
 
-        //public ActionResult GetCharaterBackpackByCharacterID()
-        //{
-
-        //}
-
-        public ActionResult CharacterBackpack(int id)
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new BackpackService(userId);
-            var model = service.GetCharacterBackpack(id);
-            return View(model);
-        }
-
         private BackpackService CreateBackpackService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

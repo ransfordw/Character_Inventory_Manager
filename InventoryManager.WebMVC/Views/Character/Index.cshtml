@@ -50,7 +50,7 @@
             @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID }) |
             @Html.ActionLink("Details", "Details", new { id = item.CharacterID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })  |
-            @Html.ActionLink("Backpack", "CharacterBackpack", new { id = item.CharacterID })
+            @Html.ActionLink("Backpack", "CharacterBackpack", new { id = item.CharacterID, characterName = item.CharacterName })
         </td>
     </tr>
 }

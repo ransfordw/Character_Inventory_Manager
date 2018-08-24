@@ -59,6 +59,7 @@
     <Compile Include="Backpack\BackpackEdit.cs" />
     <Compile Include="Backpack\BackpackList.cs" />
     <Compile Include="Backpack\CharacterBackpackList.cs" />
+    <Compile Include="Backpack\TitleView.cs" />
     <Compile Include="CharacterModels\CharacterCreate.cs" />
     <Compile Include="CharacterModels\CharacterDetail.cs" />
     <Compile Include="CharacterModels\CharacterEdit.cs" />

@@ -1,45 +1,34 @@
-﻿@model IEnumerable<InventoryManager.Models.Backpack.CharacterBackpackList>
+﻿@model InventoryManager.Models.Backpack.TitleView
 
 @{
     ViewBag.Title = "CharacterBackpack";
 }
 
-<h2>
-    @foreach (var item in Model)
-    {
-        @Html.DisplayFor(modelItem => item.CharacterName)break;
-    }'s Backpack
-</h2>
+<h2>@Html.DisplayFor(modelItem => Model.CharacterName)'s Backpack</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "Backpack")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CharacterName)
+            Item Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ItemName)
+           Item Type
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ItemType)
+            Item Description
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemValue)
+           Item Value
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.BackpackItemList)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CharacterName)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>

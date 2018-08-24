@@ -112,10 +112,14 @@ namespace InventoryManager.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult CharacterBackpack(int id)
+        public ActionResult CharacterBackpack(int id, string characterName)
         {
             var service = CreateBackpackService();
-            var model = service.GetCharacterBackpack(id);
+            var model = service.GetCharacterBackpack(id, characterName);
+            if (model.BackpackItemList.ToList().Count == 0)
+            {
+                return RedirectToAction("Create", "Backpack");
+            }
             return View(model);
         }
 

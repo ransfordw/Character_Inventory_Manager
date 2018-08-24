@@ -85,9 +85,9 @@ namespace InventoryManager.Services
             }
         }
 
-        public IEnumerable<CharacterBackpackList> GetCharacterBackpack(int id)
+        public TitleView GetCharacterBackpack(int id, string characterName)
         {
-            
+
             using (var ctx = new ApplicationDbContext())
             {
                 foreach (Backpack backpack in ctx.Backpacks)
@@ -95,7 +95,7 @@ namespace InventoryManager.Services
                     if (backpack.CharacterID == id)
                     {
                         var query = ctx.Items
-                            .Where(i => i.ItemID == backpack.ItemID )
+                            .Where(i => i.ItemID == backpack.ItemID)
                             .Select(
                                    i =>
                                    new CharacterBackpackList
@@ -108,19 +108,23 @@ namespace InventoryManager.Services
                                        Currency = i.Currency,
                                    }
                             );
-
-                        _queryableList =  query.ToList();
-                        foreach (CharacterBackpackList items in _queryableList)
+                        _queryableList = query.ToList();
+                        foreach (var item in _queryableList)
                         {
-                            _characterBackpackItems.Add(items);
+                            _characterBackpackItems.Add(item);
                         }
-                    } 
+
+                    }
 
                 }
+                        TitleView titleView = new TitleView();
+                        titleView.BackpackItemList = _characterBackpackItems;
+                        titleView.CharacterName = characterName;
+                        return titleView;
+                
             }
-            //if (_characterBackpackItems != null)
-                return _characterBackpackItems;
-            
+
+
         }
 
         //public bool UpdateBackpack(BackpackEdit model)
