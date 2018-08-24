@@ -22,6 +22,7 @@ namespace InventoryManager.Models.ItemModels
         [Display(Name = "Description")]
         public string ItemDescription { get; set; }
 
+        //TODO: Clarify "Value"... as a new player, I was not sure what this meant. Maybe... "Market Value"? "Price"?
         [Required]
         [Display(Name = "Value")]
         public int ItemValue { get; set; }
