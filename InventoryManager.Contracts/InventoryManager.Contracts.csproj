@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBackpackService.cs" />
     <Compile Include="ICharacterService.cs" />
     <Compile Include="IItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

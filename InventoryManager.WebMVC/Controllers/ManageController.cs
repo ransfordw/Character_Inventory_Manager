@@ -17,8 +17,7 @@ namespace InventoryManager.WebMVC.Controllers
         private ApplicationUserManager _userManager;
 
         public ManageController()
-        {
-        }
+        { }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {

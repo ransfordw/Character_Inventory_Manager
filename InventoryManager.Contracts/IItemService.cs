@@ -9,12 +9,10 @@ namespace InventoryManager.Contracts
 {
     public interface IItemService
     {
-        
         bool CreateItem(ItemCreate model);
         IEnumerable<ItemListItem> GetItems();
         ItemDetails GetItemById(int itemId);
         bool UpdateItem(ItemEdit model);
         bool DeleteItem(int itemId);
-
     }
 }

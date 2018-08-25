@@ -12,6 +12,5 @@ namespace InventoryManager.Models.Backpack
     {
         public int CharacterID { get; set; }
         public int ItemID { get; set; }
-        
     }
 }

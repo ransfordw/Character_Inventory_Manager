@@ -1,4 +1,5 @@
-﻿using InventoryManager.Data;
+﻿using InventoryManager.Contracts;
+using InventoryManager.Data;
 using InventoryManager.Models.Backpack;
 using InventoryMangager.Data;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Services
 {
-    public class BackpackService
+    public class BackpackService : IBackpackService
     {
         private readonly Guid _userId;
         private List<CharacterBackpackList> _characterBackpackItems = new List<CharacterBackpackList>();
@@ -18,7 +19,7 @@ namespace InventoryManager.Services
         {
             _userId = userId;
         }
-        
+
         public bool CreateBackpack(BackpackCreate model)
         {
             var entity = new Backpack()
@@ -33,7 +34,6 @@ namespace InventoryManager.Services
                 ctx.Backpacks.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-
         }
 
         public IEnumerable<BackpackList> GetBackpacks()
@@ -79,15 +79,13 @@ namespace InventoryManager.Services
                             ItemName = itemEntity.ItemName,
                             ItemDescription = itemEntity.ItemDescription,
                             ItemValue = itemEntity.ItemValue,
-                            Currency= itemEntity.Currency,
+                            Currency = itemEntity.Currency,
                         };
-                
             }
         }
 
         public TitleView GetCharacterBackpack(int id, string characterName)
         {
-
             using (var ctx = new ApplicationDbContext())
             {
                 foreach (Backpack backpack in ctx.Backpacks)
@@ -113,39 +111,14 @@ namespace InventoryManager.Services
                         {
                             _characterBackpackItems.Add(item);
                         }
-
                     }
-
                 }
-                        TitleView titleView = new TitleView();
-                        titleView.BackpackItemList = _characterBackpackItems;
-                        titleView.CharacterName = characterName;
-                        return titleView;
-                
+                TitleView titleView = new TitleView();
+                titleView.BackpackItemList = _characterBackpackItems;
+                titleView.CharacterName = characterName;
+                return titleView;
             }
-
-
         }
-
-        //public bool UpdateBackpack(BackpackEdit model)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //               ctx
-        //                    .Backpacks
-        //                    .Single(e => e.BackpackID == model.BackpackID && e.CharacterID == model.CharacterID && e.OwnerID == _userId);
-
-
-        //        entity.ItemName = model.ItemName;
-        //        entity.ItemType = model.ItemType;
-        //        entity.ItemDescription = model.ItemDescription;
-        //        entity.ItemValue = model.ItemValue;
-        //        entity.Currency = model.Currency;
-
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
 
         public bool DeleteBackpack(int backpackId)
         {

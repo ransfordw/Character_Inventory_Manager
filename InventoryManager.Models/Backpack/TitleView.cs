@@ -12,4 +12,3 @@ namespace InventoryManager.Models.Backpack
         public IEnumerable<CharacterBackpackList> BackpackItemList { get; set; }
     }
 }
-

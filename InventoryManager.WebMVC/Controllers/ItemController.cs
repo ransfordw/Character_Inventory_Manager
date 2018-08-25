@@ -19,6 +19,7 @@ namespace InventoryManager.WebMVC.Controllers
             var model = service.GetItems();
             return View(model);
         }
+
         public ActionResult Create()
         {
             return View();
@@ -46,7 +47,6 @@ namespace InventoryManager.WebMVC.Controllers
         {
             var svc = CreateItemService();
             var model = svc.GetItemById(id);//this was item before the change
-
             return View(model);
         }
         
@@ -93,7 +93,6 @@ namespace InventoryManager.WebMVC.Controllers
         {
             var svc = CreateItemService();
             var model = svc.GetItemById(id);
-
             return View(model);
         }
 
@@ -110,7 +109,6 @@ namespace InventoryManager.WebMVC.Controllers
 
             return RedirectToAction("Index");
         }
-
 
         private ItemService CreateItemService()
         {

@@ -73,7 +73,6 @@ namespace InventoryManager.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-
                 var entity =
                       ctx
                          .Items
@@ -100,7 +99,6 @@ namespace InventoryManager.Services
                             .Items
                             .Single(e => e.ItemID == model.ItemID && e.OwnerID == _userId);
 
-                
                 entity.ItemName = model.ItemName;
                 entity.ItemType = model.ItemType;
                 entity.ItemDescription = model.ItemDescription;
@@ -124,7 +122,5 @@ namespace InventoryManager.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-
     }
 }

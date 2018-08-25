@@ -49,7 +49,6 @@ namespace InventoryManager.WebMVC.Controllers
         {
             var svc = CreateCharacterService();
             var model = svc.GetCharacterById(id);
-
             return View(model);
         }
 
@@ -81,7 +80,7 @@ namespace InventoryManager.WebMVC.Controllers
 
             var service = CreateCharacterService();
 
-            if (service.UpdateNote(model))
+            if (service.UpdateCharacter(model))
             {
                 TempData["SaveResult"] = "Your Character was updated.";
                 return RedirectToAction("Index");
@@ -94,7 +93,6 @@ namespace InventoryManager.WebMVC.Controllers
         {
             var svc = CreateCharacterService();
             var model = svc.GetCharacterById(id);
-
             return View(model);
         }
 

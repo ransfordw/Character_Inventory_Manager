@@ -10,7 +10,6 @@ namespace InventoryManager.Models.Backpack
 {
     public class CharacterBackpackList
     {
-       
         public int CharacterID { get; set; }
         public int BackpackID { get; set; }
         public string CharacterName { get; set; }
@@ -32,6 +31,5 @@ namespace InventoryManager.Models.Backpack
 
         [Required]
         public Currency Currency { get; set; }
-
     }
 }

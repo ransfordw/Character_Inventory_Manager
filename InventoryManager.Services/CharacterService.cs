@@ -1,4 +1,5 @@
-﻿using InventoryManager.Data;
+﻿using InventoryManager.Contracts;
+using InventoryManager.Data;
 using InventoryManager.Models;
 using InventoryManager.Models.CharacterModels;
 using InventoryMangager.Data;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Services
 {
-    public class CharacterService
+    public class CharacterService : ICharacterService
     {
         private readonly Guid _userId;
         public CharacterService(Guid userId)
@@ -78,7 +79,7 @@ namespace InventoryManager.Services
             }
         }
 
-        public bool UpdateNote(CharacterEdit model)
+        public bool UpdateCharacter(CharacterEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -124,7 +125,6 @@ namespace InventoryManager.Services
                         CharacterName = character.CharacterName,
                         CharacterClass = character.CharacterClass,
                         CharacterRace = character.CharacterRace,
-                        //Item = itemService.GetAllItemsByCharacterId(id)
                     };
             }
         }
@@ -139,6 +139,5 @@ namespace InventoryManager.Services
                          .SingleOrDefault(e => e.CharacterID == id);
             }
         }
-        
     }
 }

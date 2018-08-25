@@ -31,7 +31,6 @@ namespace InventoryManager.WebMVC.Controllers
             ViewBag.ItemID = new SelectList(itemService.GetItems(), "ItemID", "ItemName");
 
             return View();
-
         }
 
         [HttpPost]
@@ -65,7 +64,6 @@ namespace InventoryManager.WebMVC.Controllers
         {
             var svc = CreateBackpackService();
             var model = svc.GetBackpackItemByCharacterId(id);
-
             return View(model);
         }
 
