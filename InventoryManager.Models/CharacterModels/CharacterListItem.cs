@@ -16,7 +16,7 @@ namespace InventoryManager.Models.CharacterModels
         [Display(Name = "Class")]
         public CharacterClass CharacterClass { get; set; }
         [Display(Name = "Race")]
-        public CharacterRace CharacterRace { get; set; }
+        public string CharacterRace { get; set; }
 
         public override string ToString() => CharacterName;
     }

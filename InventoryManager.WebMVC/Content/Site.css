@@ -1,8 +1,10 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    
-    background-color: rgb(0, 255, 255);
+    background-color: black;
+    background-image: url('Assets/background-image-3497025_1920.jpg');
+    background-repeat: no-repeat;
+    color: rgba(123, 168, 170, 0.8);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -27,8 +29,38 @@ textarea {
 
 body {
     font-family: url(https://fonts.googleapis.com/css?family=Inknut+Antiqua);
-    /*font-family: 'Inknut Antiqua', serif;*/
     font-family: 'Inknut Antiqua', serif;
 }
-h1 {
+
+.navbar-inverse {
+    background-color: #5A1D1B;
+}
+
+.characterCreate {
+    background-image: url('Assets/knight.svg');
+    background-size: cover;
+    border: none;
+    height: 20em;
+    width: 20em;
+}
+
+.btn-default {
+    background-color: transparent;
+}
+
+.itemCreate {
+    background-image: url('Assets/bag.svg');
+    background-size: cover;
+    border: none;
+    height: 20em;
+    width: 20em;
+}
+
+.jumbotron {
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+#itemsButton{
+   text-align: center;
 }

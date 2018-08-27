@@ -39,6 +39,7 @@ namespace InventoryManager.Services
 
         public IEnumerable<CharacterListItem> GetCharacters()
         {
+            List<CharacterListItem> replaceCharacterList = new List<CharacterListItem>();
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
@@ -52,10 +53,20 @@ namespace InventoryManager.Services
                                     CharacterID = e.CharacterID,
                                     CharacterName = e.CharacterName,
                                     CharacterClass = e.CharacterClass,
-                                    CharacterRace = e.CharacterRace,
+                                    CharacterRace = e.CharacterRace.ToString(),
                                 }
                         );
-                return query.ToArray();
+
+                foreach (var q in query)
+                {
+                    if (q.CharacterRace.Contains("_"))
+                    {
+                        q.CharacterRace = q.CharacterRace.Replace("_", " ");
+                        replaceCharacterList.Add(q);
+                    }
+                    replaceCharacterList.Add(q);
+                };
+                return replaceCharacterList.ToArray();
             }
         }
 

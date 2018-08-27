@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using InventoryManager.WebMVC.Helpers
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -36,6 +37,32 @@
             </div>
         </div>
     </div>
+    @{
+        string name = Html.CurrentViewName();
+        var controller = Html.ControllerName();
+        if (name == "Index" && controller == "HomeController")
+        {
+            <div class="jumbotron">
+                <div class="container-fluid">
+                    <h1>What's In My Bag?</h1>
+                    <p class="lead">
+                        What's In My Bag? is a great way to maintain how many potions you have in that
+                        bag of holding and protecting your characters' valuable treasures from smudges and spills.
+                    </p>
+                </div>
+            </div>
+        }
+        else if (name == "Index" && controller == "CharacterController")
+        {
+            <div class="jumbotron">
+                <div class="container-fluid">
+                    <h1>Characters</h1>
+                    
+                </div>
+            </div>
+        }
+    }
+
     <div class="container body-content">
         @RenderBody()
         <hr />
