@@ -55,7 +55,7 @@ namespace InventoryManager.WebMVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateCharacterService();
-            var detail = service.GetCharacterById(id);
+            var detail = service.GetCharacterByIdForEdit(id);
             var model =
                 new CharacterEdit
                 {

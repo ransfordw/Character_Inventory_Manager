@@ -14,6 +14,5 @@ namespace InventoryManager.Contracts
         CharacterDetail GetCharacterById(int characterId);
         bool UpdateCharacter(CharacterEdit model);
         bool DeleteCharacter(int characterId);
-        CharacterDetail GetCharacterByIdAgain(int id);
     }
 }

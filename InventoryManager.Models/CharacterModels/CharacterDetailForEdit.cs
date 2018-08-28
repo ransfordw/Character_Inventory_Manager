@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManager.Models.CharacterModels
 {
-    public class CharacterDetail
+    public class CharacterDetailForEdit
     {
         public int CharacterID { get; set; }
         [Display(Name = "Name")]
@@ -16,7 +16,7 @@ namespace InventoryManager.Models.CharacterModels
         [Display(Name = "Class")]
         public CharacterClass CharacterClass { get; set; }
         [Display(Name = "Race")]
-        public string CharacterRace { get; set; }
+        public CharacterRace CharacterRace { get; set; }
 
         public override string ToString() => $"[{CharacterID}] {CharacterName}";
     }

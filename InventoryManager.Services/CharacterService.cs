@@ -60,11 +60,9 @@ namespace InventoryManager.Services
                 foreach (var q in query)
                 {
                     if (q.CharacterRace.Contains("_"))
-                    {
                         q.CharacterRace = q.CharacterRace.Replace("_", " ");
-                        replaceCharacterList.Add(q);
-                    }
                     replaceCharacterList.Add(q);
+
                 };
                 return replaceCharacterList.ToArray();
             }
@@ -80,13 +78,33 @@ namespace InventoryManager.Services
                          .Characters
                          .Single(e => e.CharacterID == characterId && e.OwnerID == _userId);
                 return
-                    new CharacterDetail
-                    {
-                        CharacterID = entity.CharacterID,
-                        CharacterName = entity.CharacterName,
-                        CharacterClass = entity.CharacterClass,
-                        CharacterRace = entity.CharacterRace,
-                    };
+                                 new CharacterDetail
+                                 {
+                                     CharacterID = entity.CharacterID,
+                                     CharacterName = entity.CharacterName,
+                                     CharacterClass = entity.CharacterClass,
+                                     CharacterRace = entity.CharacterRace.ToString().Replace("_", " "),
+                                 };
+            }
+        }
+
+        public CharacterDetailForEdit GetCharacterByIdForEdit(int characterId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+                var entity =
+                      ctx
+                         .Characters
+                         .Single(e => e.CharacterID == characterId && e.OwnerID == _userId);
+                return
+                                 new CharacterDetailForEdit
+                                 {
+                                     CharacterID = entity.CharacterID,
+                                     CharacterName = entity.CharacterName,
+                                     CharacterClass = entity.CharacterClass,
+                                     CharacterRace = entity.CharacterRace,
+                                 };
             }
         }
 
@@ -118,25 +136,6 @@ namespace InventoryManager.Services
                 ctx.Characters.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
-            }
-        }
-
-        public CharacterDetail GetCharacterByIdAgain(int id)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-
-                var character = GetCharacter(ctx, id);
-                var itemService = new ItemService(_userId, id);
-
-                return
-                    new CharacterDetail
-                    {
-                        CharacterID = character.CharacterID,
-                        CharacterName = character.CharacterName,
-                        CharacterClass = character.CharacterClass,
-                        CharacterRace = character.CharacterRace,
-                    };
             }
         }
 
