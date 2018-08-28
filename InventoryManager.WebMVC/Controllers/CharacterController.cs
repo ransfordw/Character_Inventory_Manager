@@ -121,6 +121,13 @@ namespace InventoryManager.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult ItemDetails(int id)
+        {
+            var service = CreateItemService();
+            var model = service.GetItemById(id);
+            return ItemDetails(id);
+        }
+
         private CharacterService CreateCharacterService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -132,6 +139,13 @@ namespace InventoryManager.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new BackpackService(userId);
+            return service;
+        }
+
+        private ItemService CreateItemService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ItemService(userId);
             return service;
         }
     }

@@ -74,6 +74,7 @@ namespace InventoryManager.Services
                 return
                         new CharacterBackpackList
                         {
+                            ItemID = itemEntity.ItemID,
                             CharacterName = entity.CharacterName,
                             ItemType = itemEntity.ItemType,
                             ItemName = itemEntity.ItemName,
@@ -98,6 +99,7 @@ namespace InventoryManager.Services
                                    i =>
                                    new CharacterBackpackList
                                    {
+                                       ItemID = i.ItemID,
                                        CharacterName = backpack.Character.CharacterName,
                                        ItemType = i.ItemType,
                                        ItemName = i.ItemName,

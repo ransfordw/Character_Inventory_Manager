@@ -38,7 +38,7 @@
         </div>
     </div>
     @{
-        string name = Html.CurrentViewName();
+        var name = Html.CurrentViewName();
         var controller = Html.ControllerName();
         if (name == "Index" && controller == "HomeController")
         {
@@ -55,9 +55,16 @@
         else if (name == "Index" && controller == "CharacterController")
         {
             <div class="jumbotron">
-                <div class="container-fluid">
-                    <h1>Characters</h1>
-                    
+                <div class="container-fluid ">
+                    <h1>Character List</h1>
+                </div>
+            </div>
+        }
+        else if (name == "Index" && controller == "ItemController")
+        {
+            <div class="jumbotron">
+                <div class="container-fluid ">
+                    <h1>Item List</h1>
                 </div>
             </div>
         }
@@ -66,10 +73,10 @@
     <div class="container body-content">
         @RenderBody()
     </div>
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - What's In My Bag?</p>
-        </footer>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - What's In My Bag?</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

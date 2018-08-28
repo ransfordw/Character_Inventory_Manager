@@ -71,7 +71,7 @@ body {
 
 .profile {
     background-size: cover;
-    border: none;
+    border: 2px white;
     height: 20em;
     width: 20em;
 }
@@ -83,4 +83,87 @@ body {
     background-position: center;
     background-image: url('Assets/knight.svg');
     background-repeat: no-repeat;
+}
+
+.charButton {
+    border-color: transparent;
+}
+
+.charContainer {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    background-color: rgba(155, 100, 129, 0.6);
+    padding: 0.5em;
+    color: black;
+    border-radius: 3%;
+}
+
+.charProfile {
+    background-size: cover;
+    border: 2px white;
+    height: 25em;
+    width: 25em;
+    text-align: center;
+    flex-grow:8;
+}
+
+.charProfile p{
+    font-size: larger;
+}
+#charLinks {
+    text-align: center;
+    display:inline-block;
+    color: black;
+}
+
+#imgPlaceholder:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+.actionLink {
+    color: black;
+}
+#bagLink {
+    width: 15em;
+    height: 15em;
+    background-size: 75%;
+    background-position: center;
+    background-image: url('Assets/bag.svg');
+    background-repeat: no-repeat;
+    color: transparent;
+}
+
+#createIcon {
+    width: 15em;
+    height: 15em;
+    background-size: 75%;
+    background-position: center;
+    background-image: url('Assets/icons8-add-user-male-26.png');
+    background-repeat: no-repeat;
+    color: transparent;
+}
+
+.charJumbotron {
+    background-image: url('Assets/dragon-slayer-145565_960_720.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    opacity:0.75;
+}
+#charJumbotron {
+    color: black;
+    opacity:1.0;
+}
+
+#itemPanel {
+    color: black;
+    background-image: url('Assets/medieval_brick_texture_05_by_goodtextures.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#itemPanel table {
+    background-color: rgba(197,192,163,0.4);
+
 }

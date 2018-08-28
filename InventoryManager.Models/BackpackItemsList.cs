@@ -12,6 +12,7 @@ namespace InventoryManager.Models
     {
         public int PackListID { get; set; }
         public int BackpackID { get; set; }
+        public int ItemID { get; set; }
         public string CharacterName { get; set; }
         [Required]
         [Display(Name = "Item Name")]

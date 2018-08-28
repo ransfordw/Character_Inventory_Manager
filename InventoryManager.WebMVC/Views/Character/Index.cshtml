@@ -3,30 +3,28 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Character List</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { @class="glyphicon glyphicon-plus"})
 </p>
-        @foreach (var item in Model)
-        {
-<div class="col-md-4 profile">
-    <div>
-            <span>@Html.DisplayFor(modelItem => item.CharacterName)</span>
-            <div id="imgPlaceholder"></div>
-            <span>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CharacterID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })  |
-                @Html.ActionLink("Backpack", "CharacterBackpack", new { id = item.CharacterID, characterName = item.CharacterName })
+<div class="charContainer">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6 charProfile">
+            <p><b>@Html.DisplayFor(modelItem => item.CharacterName)</b></p>
+            <span><a class="btn btn-default charButton" id="imgPlaceholder" href='@Url.Action("Details", "Character", new { id = item.CharacterID })'></a> </span>
+            <span id="charLinks">
+                @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID }, new { @class = "actionLink" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID }, new { @class = "actionLink" }) |
+                @Html.ActionLink("Backpack", "CharacterBackpack", new { id = item.CharacterID, characterName = item.CharacterName }, new { @class = "actionLink", id = "bagLink" })
             </span>
-    </div>
+        </div>
+    }
 </div>
-        }
+
+<h2>Table View</h2>
 <table class="table">
     <tr>
-        
+
         <th>
             @Html.DisplayNameFor(model => model.CharacterName)
         </th>
@@ -39,23 +37,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CharacterName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CharacterClass)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CharacterRace)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.CharacterID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })  |
-            @Html.ActionLink("Backpack", "CharacterBackpack", new { id = item.CharacterID, characterName = item.CharacterName })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CharacterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CharacterClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CharacterRace)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CharacterID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })  |
+                @Html.ActionLink("Backpack", "CharacterBackpack", new { id = item.CharacterID, characterName = item.CharacterName })
+            </td>
+        </tr>
+    }
 </table>
+<div>
+    <div class="jumbotron charJumbotron">
+        <div class="container-fluid ">
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+</div>

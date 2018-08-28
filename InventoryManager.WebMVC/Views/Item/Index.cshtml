@@ -9,52 +9,53 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<div class="panel">
+<div class="panel" id="itemPanel">
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemValue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Currency)
-        </th>
-        <th></th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Currency)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemValue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Currency)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ItemID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ItemID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Currency)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ItemID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ItemID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ItemID })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
 </div>

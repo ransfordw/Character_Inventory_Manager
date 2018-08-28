@@ -7,7 +7,7 @@
 <h2>@Html.DisplayFor(modelItem => Model.CharacterName)'s Backpack</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", "Backpack")
+    @Html.ActionLink("Add Item", "Create", "Backpack")
 </p>
 <table class="table">
     <tr>
@@ -44,7 +44,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CharacterID }) |
+                @Html.ActionLink("Details", "Details",  "Item", new { id = item.ItemID }, null ) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })
             </td>
         </tr>

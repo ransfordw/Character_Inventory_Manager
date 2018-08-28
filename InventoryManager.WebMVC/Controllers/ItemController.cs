@@ -46,7 +46,7 @@ namespace InventoryManager.WebMVC.Controllers
         public ActionResult Details(int id)
         {
             var svc = CreateItemService();
-            var model = svc.GetItemById(id);//this was item before the change
+            var model = svc.GetItemById(id);
             return View(model);
         }
         
