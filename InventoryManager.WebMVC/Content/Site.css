@@ -4,7 +4,7 @@
     background-color: black;
     background-image: url('Assets/background-image-3497025_1920.jpg');
     background-repeat: no-repeat;
-    color: rgba(123, 168, 170, 0.8);
+    color: rgba(143, 188, 190, 0.8);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -36,24 +36,28 @@ body {
     background-color: #5A1D1B;
 }
 
-.characterCreate {
-    background-image: url('Assets/knight.svg');
-    background-size: cover;
-    border: none;
-    height: 20em;
-    width: 20em;
-}
 
 .btn-default {
     background-color: transparent;
 }
 
-.itemCreate {
-    background-image: url('Assets/bag.svg');
+.homePageButton {
     background-size: cover;
     border: none;
     height: 20em;
     width: 20em;
+    border-radius: 50%;
+}
+
+
+#character {
+    background-image: url('Assets/knight.svg');
+}
+#item {
+    background-image: url('Assets/bag.svg');
+}
+.homePageButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .jumbotron {
@@ -63,4 +67,20 @@ body {
 
 #itemsButton{
    text-align: center;
+}
+
+.profile {
+    background-size: cover;
+    border: none;
+    height: 20em;
+    width: 20em;
+}
+
+#imgPlaceholder {
+    width:15em;
+    height:15em;
+    background-size: 75%;
+    background-position: center;
+    background-image: url('Assets/knight.svg');
+    background-repeat: no-repeat;
 }
