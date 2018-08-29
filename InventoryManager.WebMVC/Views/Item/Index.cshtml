@@ -4,11 +4,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Items List</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<div class="charContainer">
+    @foreach (var item in Model)
+    {
+        <div class="profile">
+            <div class="photo">
+                <img src="~/Content/Assets/bag.svg" href='@Url.Action("Details", "Character", new { id = item.ItemID })' />
+            </div>
+            <div class="content itemContent">
+                <div class="itemText">
+                    <a href='@Url.Action("Details", "Item", new { id = item.ItemID })'><h4>@Html.DisplayFor(modelItem => item.ItemName)</h4></a>
+                    <h5>@Html.DisplayFor(modelItem => item.ItemDescription)</h5>
+                </div>
+                @*<div><span><a class="btn btn-default btn-profile" id="bagLink" href="@Url.Action("Create", "Backpack", new { id = item.ItemID })"><</a></span></div>*@
+            </div>
+        </div>
+    }
+</div>
+
 <div class="panel" id="itemPanel">
 
     <table class="table">

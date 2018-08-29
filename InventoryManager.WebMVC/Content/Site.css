@@ -54,6 +54,11 @@ body {
     text-align: center;
 }
 
+.jumbotronAlt {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 #character {
     background-image: url('Assets/knight.svg');
 }
@@ -62,6 +67,8 @@ body {
 }
 .homePageButton:hover {
     background-color: rgba(255, 255, 255, 0.2);
+    transition-duration: 0.3s;
+    animation:  0.5s forwards ease-in-out;
 }
 
 #itemsButton{
@@ -191,13 +198,10 @@ body {
 
 .profile {
     text-align: center;
-    /*flex-grow: 1;*/
     width: 22em;
     height: 7em;
     transform: translate(0, 0);
     border-radius: 40% 5px 5px 50%;
-    /*background-color: #fafafa;
-    box-shadow: 0 0 2rem #babbbc;*/
     margin-left: 50px;
     margin-bottom: 50px;
 }
@@ -244,20 +248,17 @@ body {
     top: 0;
     left: 0;
     border-radius: 5% 0 0 5%;
-    
 }
 
     .profile .content::before {
         content: "";
         position: absolute;
-        /*width: 165px;*/
         width: 218px;
         height: 150px;
         background-color: #e9f3e6;
         left: 40px;
         top: -20px;
         z-index: -1;
-        transform: rotate(-8deg);
     }
 
     .profile .content .text {
@@ -265,6 +266,20 @@ body {
         margin-top: 15px;
         margin-left: 80px;
         max-width: 165px;
+    }
+
+.itemText {
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 80px;
+    max-width: 150px;
+}
+
+    .itemText h5{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
     }
 
         .profile .content .text h3, .profile .content .text h6 {
@@ -279,8 +294,6 @@ body {
         width: 50px;
         height: 50px;
         position: absolute;
-        /*right: 15px;
-        top: 15px;*/
         right: 0px;
         top: 0px;
         border-radius: 50%;
@@ -293,3 +306,11 @@ body {
         .profile .content .btn-profile:hover {
             background-color: rgb(200,217,234);
         }
+
+#crudPageButtons {
+    background-color: rgba(235, 235, 235, 0.6);
+}
+
+    #crudPageButtons:hover {
+        background-color: rgba(235, 235, 235, 0.8);
+    }
