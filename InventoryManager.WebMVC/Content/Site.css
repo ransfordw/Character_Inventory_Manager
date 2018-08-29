@@ -4,6 +4,7 @@
     background-color: black;
     background-image: url('Assets/background-image-3497025_1920.jpg');
     background-repeat: no-repeat;
+    background-position:center top;
     color: rgba(143, 188, 190, 0.8);
 }
 
@@ -36,7 +37,6 @@ body {
     background-color: #5A1D1B;
 }
 
-
 .btn-default {
     background-color: transparent;
 }
@@ -49,6 +49,10 @@ body {
     border-radius: 50%;
 }
 
+.jumbotron {
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
 
 #character {
     background-image: url('Assets/knight.svg');
@@ -58,11 +62,6 @@ body {
 }
 .homePageButton:hover {
     background-color: rgba(255, 255, 255, 0.2);
-}
-
-.jumbotron {
-    background-color: rgba(0, 0, 0, 0.4);
-    text-align: center;
 }
 
 #itemsButton{
@@ -93,10 +92,12 @@ body {
     display: inline-flex;
     flex-wrap: wrap;
     align-items: baseline;
-    background-color: rgba(155, 100, 129, 0.6);
-    padding: 0.5em;
+    /*background-color: rgba(155, 100, 129, 0.6);*/
+    padding: 1em;
     color: black;
     border-radius: 3%;
+    flex-flow:row wrap;
+    justify-content: space-around;
 }
 
 .charProfile {
@@ -105,11 +106,11 @@ body {
     height: 25em;
     width: 25em;
     text-align: center;
-    flex-grow:8;
+    flex-grow:6;
 }
 
 .charProfile p{
-    font-size: larger;
+    font-size: 2em;
 }
 #charLinks {
     text-align: center;
@@ -125,13 +126,17 @@ body {
     color: black;
 }
 #bagLink {
-    width: 15em;
-    height: 15em;
+    /*width: 5em;
+    height: 5em;*/
+    width: 7em;
+    height: 7em;
     background-size: 75%;
     background-position: center;
     background-image: url('Assets/bag.svg');
     background-repeat: no-repeat;
     color: transparent;
+    border-radius: 50%;
+    border-color: transparent;
 }
 
 #createIcon {
@@ -165,5 +170,126 @@ body {
 
 #itemPanel table {
     background-color: rgba(197,192,163,0.4);
-
 }
+/*-----------------------------------------------------------------------------*/
+/*@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+* {
+    outline: none;
+    user-select: none;
+}*/
+
+/*body, html {
+    margin: 0;
+    background: transparent;
+    color: #7a7b7c;
+}*/
+
+/*body {
+    font-family: "Raleway", "Microsoft JhengHei", Arial, sans-serif;
+}*/
+
+.profile {
+    text-align: center;
+    /*flex-grow: 1;*/
+    width: 22em;
+    height: 7em;
+    transform: translate(0, 0);
+    border-radius: 40% 5px 5px 50%;
+    /*background-color: #fafafa;
+    box-shadow: 0 0 2rem #babbbc;*/
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+@keyframes show-profile {
+    0% {
+        width: 0;
+    }
+}
+
+.profile .photo, .profile .content {
+    box-sizing: border-box;
+}
+
+.profile .photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fafafa;
+    background-color: #fafafa;
+    margin-left: -30px;
+    margin-top: -4px;
+    box-shadow: 0 0 0.5rem #babbbc;
+    animation: rotate-photo 0.5s forwards ease-in-out;
+}
+
+@keyframes rotate-photo {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.profile .photo img {
+    width: 100%;
+}
+
+.profile .content {
+    padding: 10px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 5% 0 0 5%;
+    
+}
+
+    .profile .content::before {
+        content: "";
+        position: absolute;
+        /*width: 165px;*/
+        width: 218px;
+        height: 150px;
+        background-color: #e9f3e6;
+        left: 40px;
+        top: -20px;
+        z-index: -1;
+        transform: rotate(-8deg);
+    }
+
+    .profile .content .text {
+        text-align: left;
+        margin-top: 15px;
+        margin-left: 80px;
+        max-width: 165px;
+    }
+
+        .profile .content .text h3, .profile .content .text h6 {
+            font-weight: normal;
+            margin: 3px 0;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+    .profile .content .btn-profile {
+        background-color: rgb(170,187,204);
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        /*right: 15px;
+        top: 15px;*/
+        right: 0px;
+        top: 0px;
+        border-radius: 50%;
+        z-index: 1;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        animation: rotate-photo 0.5s forwards ease-in-out;
+    }
+
+        .profile .content .btn-profile:hover {
+            background-color: rgb(200,217,234);
+        }

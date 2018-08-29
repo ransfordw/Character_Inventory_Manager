@@ -7,8 +7,8 @@
 <h2>Character Details</h2>
 
 <div>
-    <hr />
-    <dl class="dl-horizontal">
+    <br />
+    <dl class="dl-horizontal panel">
         <dt>
             @Html.DisplayNameFor(model => model.CharacterName)
         </dt>
@@ -37,5 +37,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterID }) |
+    @Html.ActionLink("Delete Character","Delete", new { id =Model.CharacterID}) |
     @Html.ActionLink("Back to List", "Index")
 </p>
