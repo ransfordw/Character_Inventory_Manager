@@ -23,18 +23,8 @@
         </div>
     }
 </div>
-@*<div class="charContainer">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-6 charProfile">
-            <p><b>@Html.DisplayFor(modelItem => item.CharacterName)</b></p>
-            <span><a class="btn btn-default charButton" id="imgPlaceholder" href='@Url.Action("Details", "Character", new { id = item.CharacterID })'></a> </span>
-            <span><a class="btn btn-default" id="bagLink" href="@Url.Action("CharacterBackpack", "Character", new { id = item.CharacterID, characterName = item.CharacterName })"></a></span>
-        </div>
-    }
-</div>*@
 
-<h2>Table View</h2>
+@*<h2>Table View</h2>
 <table class="table">
     <tr>
 
@@ -68,7 +58,7 @@
             </td>
         </tr>
     }
-</table>
+</table>*@
 <div>
     <div class="jumbotron charJumbotron">
         <div class="container-fluid ">

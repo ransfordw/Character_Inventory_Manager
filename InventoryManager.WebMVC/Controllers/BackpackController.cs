@@ -60,10 +60,17 @@ namespace InventoryManager.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int charId, int itemId)
         {
             var svc = CreateBackpackService();
-            var model = svc.GetBackpackItemByCharacterId(id);
+            var model = svc.GetBackpackItemByCharacterId(charId, itemId);
+            return View(model);
+        }
+
+        public ActionResult Delete(int charId, int itemId)
+        {
+            var svc = CreateBackpackService();
+            var model = svc.GetBackpackItemByCharacterId(charId, itemId);
             return View(model);
         }
 

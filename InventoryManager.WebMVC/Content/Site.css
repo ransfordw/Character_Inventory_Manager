@@ -99,7 +99,6 @@ body {
     display: inline-flex;
     flex-wrap: wrap;
     align-items: baseline;
-    /*background-color: rgba(155, 100, 129, 0.6);*/
     padding: 1em;
     color: black;
     border-radius: 3%;
@@ -133,8 +132,6 @@ body {
     color: black;
 }
 #bagLink {
-    /*width: 5em;
-    height: 5em;*/
     width: 7em;
     height: 7em;
     background-size: 75%;
@@ -145,6 +142,8 @@ body {
     border-radius: 50%;
     border-color: transparent;
 }
+
+
 
 #createIcon {
     width: 15em;
@@ -158,15 +157,16 @@ body {
 
 .charJumbotron {
     background-image: url('Assets/dragon-slayer-145565_960_720.png');
+    background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
     opacity:0.75;
 }
-#charJumbotron {
+/*#charJumbotron {
     color: black;
     opacity:1.0;
-}
+}*/
 
 #itemPanel {
     color: black;
@@ -272,10 +272,10 @@ body {
     text-align: left;
     margin-top: 0px;
     margin-left: 80px;
-    max-width: 150px;
+    max-width: 200px;
 }
 
-    .itemText h5{
+    .itemText h5, .itemText h4{
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -314,3 +314,14 @@ body {
     #crudPageButtons:hover {
         background-color: rgba(235, 235, 235, 0.8);
     }
+
+.itemCard {
+    background-color: rgb(233, 243, 230);
+    width: 98px;
+    height: 98px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-radius: 50%;
+    z-index: -2;
+}

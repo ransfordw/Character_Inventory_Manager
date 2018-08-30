@@ -9,6 +9,25 @@
 <p>
     @Html.ActionLink("Add Item", "Create", "Backpack")
 </p>
+
+<div class="charContainer">
+    @foreach (var item in Model.BackpackItemList)
+    {
+        <div class="profile">
+            <div class="photo">
+                <a href='@Url.Action("Details", "Character", new { id = item.ItemID })'><img src="~/Content/Assets/bag.svg" /></a>
+            </div>
+            <div class="content itemContent">
+                <div class="itemText">
+                    <a href='@Url.Action("Details", "Item", new { id = item.ItemID })'><h4>@Html.DisplayFor(modelItem => item.ItemName)</h4></a>
+                    <h5>@Html.DisplayFor(modelItem => item.ItemDescription)</h5>
+                </div>
+                <div class="itemCard"><span></span></div>
+            </div>
+        </div>
+    }
+</div>
+
 <table class="table">
     <tr>
         <th>

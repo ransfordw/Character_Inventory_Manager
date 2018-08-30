@@ -13,14 +13,14 @@
     {
         <div class="profile">
             <div class="photo">
-                <img src="~/Content/Assets/bag.svg" href='@Url.Action("Details", "Character", new { id = item.ItemID })' />
+                <a href='@Url.Action("Details", "Character", new { id = item.ItemID })'><img src="~/Content/Assets/bag.svg"  /></a>
             </div>
             <div class="content itemContent">
                 <div class="itemText">
                     <a href='@Url.Action("Details", "Item", new { id = item.ItemID })'><h4>@Html.DisplayFor(modelItem => item.ItemName)</h4></a>
                     <h5>@Html.DisplayFor(modelItem => item.ItemDescription)</h5>
                 </div>
-                @*<div><span><a class="btn btn-default btn-profile" id="bagLink" href="@Url.Action("Create", "Backpack", new { id = item.ItemID })"><</a></span></div>*@
+               <div class="itemCard"><span ></span></div>
             </div>
         </div>
     }

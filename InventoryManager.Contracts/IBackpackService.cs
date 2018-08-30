@@ -11,7 +11,7 @@ namespace InventoryManager.Contracts
     {
         bool CreateBackpack(BackpackCreate model);
         IEnumerable<BackpackList> GetBackpacks();
-        CharacterBackpackList GetBackpackItemByCharacterId(int id);
+        CharacterBackpackList GetBackpackItemByCharacterId(int charId, int itemId);
         TitleView GetCharacterBackpack(int id, string characterName);
         bool DeleteBackpack(int backpackId);
     }

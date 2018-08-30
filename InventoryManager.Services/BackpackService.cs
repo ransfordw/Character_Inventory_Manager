@@ -59,18 +59,18 @@ namespace InventoryManager.Services
             }
         }
 
-        public CharacterBackpackList GetBackpackItemByCharacterId(int id)
+        public CharacterBackpackList GetBackpackItemByCharacterId(int charId, int itemId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                         ctx
                             .Characters
-                            .Single(e => e.CharacterID == id && e.OwnerID == _userId);
+                            .Single(e => e.CharacterID == charId && e.OwnerID == _userId);
                 var itemEntity =
                         ctx
                             .Items
-                            .Single(i => i.ItemID == id && i.OwnerID == _userId);
+                            .Single(i => i.ItemID == itemId && i.OwnerID == _userId);
                 return
                         new CharacterBackpackList
                         {
