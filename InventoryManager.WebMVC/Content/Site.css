@@ -8,6 +8,19 @@
     color: rgba(143, 188, 190, 0.8);
 }
 
+
+@-webkit-keyframes filter-animation {
+    0% {
+        -webkit-filter: saturate(0);
+    }
+    50% {
+        -webkit-filter: saturate(3);
+    }
+    100% {
+        -webkit-filter: saturate(0);
+    }
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -42,14 +55,36 @@ body {
 }
 
 .footer {
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-bottom: 0;
     bottom: 0px;
+    font-size: larger;
+    color:wheat;
 }
+
+.footerSword {
+    background-image: url('Assets/if_Sword_2913105.svg');
+    background-repeat: no-repeat;
+    background-size:100%;
+    image-orientation: 45deg;
+}
+
+.footerSword:hover {
+    background-color: transparent;
+}
+
 .navButton {
     width: 40px;
     height: 40px;
     background-color: transparent;
-        background-size: 40px;
-        background-repeat: no-repeat;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    padding: 5px;
+    margin-top: 5px;
+}
+.navButton:hover{
+    filter: saturate(4);
 }
     #navCharacter {
         background-image: url('Assets/knight.svg');
@@ -59,6 +94,16 @@ body {
 }
 #navBag {
     background-image: url('Assets/bag.svg');
+}
+#navAbout {
+    background-image: url('Assets/Minimalist_info_Icon.png');
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+#navAbout:hover {
+    background-color:cadetblue;
+    border-radius: 50%;
+    background-size: 100%;
 }
 .homePageButton {
     background-size: cover;
@@ -90,7 +135,8 @@ body {
 .homePageButton:hover {
     background-color: rgba(255, 255, 255, 0.2);
     transition-duration: 0.3s;
-    animation:  0.5s forwards ease-in-out;
+    animation: 0.5s forwards ease-in-out;
+    filter: hue-rotate(10deg);
 }
 
 #itemsButton{
@@ -179,20 +225,15 @@ body {
 
 #itemEdit {
     background-size: 60%;
-    /*background-size: 40%;*/
     background-position: center;
     background-image: url('Assets/edit_btn_img.png');
-    
     background-repeat: no-repeat;
     color: transparent;
     border-radius: 50%;
     border-color: transparent;
     background-color: transparent;
     top: 25px;
-    /*top: -5px;*/
     right: 50px;
-    /*right: 205px;*/
-
 }
 
 #createIcon {
@@ -213,10 +254,6 @@ body {
     background-size: auto;
     opacity:0.75;
 }
-/*#charJumbotron {
-    color: black;
-    opacity:1.0;
-}*/
 
 #itemPanel {
     color: black;
@@ -229,22 +266,6 @@ body {
     background-color: rgba(197,192,163,0.4);
 }
 /*-----------------------------------------------------------------------------*/
-/*@import 'https://fonts.googleapis.com/css?family=Raleway';
-
-* {
-    outline: none;
-    user-select: none;
-}*/
-
-/*body, html {
-    margin: 0;
-    background: transparent;
-    color: #7a7b7c;
-}*/
-
-/*body {
-    font-family: "Raleway", "Microsoft JhengHei", Arial, sans-serif;
-}*/
 
 .profile {
     text-align: center;
@@ -395,46 +416,12 @@ body {
     border-color: transparent;
 }
 
-/*.navbar-header {
-    float: none;
+.form-horizontal {
+    padding: 1em;
+    border-radius: 5px;
+    background: linear-gradient(rgb(234,244,231),rgb(171,188,205));
+    width: 500px;
+    background-position-x: center;
+    margin: 0 auto;
+    color: black;
 }
-
-.navbar-left, .navbar-right {
-    float: none !important;
-}
-
-.navbar-toggle {
-    display: block;
-}
-
-.navbar-collapse {
-    border-top: 1px solid transparent;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
-.navbar-fixed-top {
-    top: 0;
-    border-width: 0 0 1px;
-}
-
-.navbar-collapse.collapse {
-    display: none !important;
-}
-
-.navbar-nav {
-    float: none !important;
-    margin-top: 7.5px;
-}
-
-    .navbar-nav > li {
-        float: none;
-    }
-
-        .navbar-nav > li > a {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-.collapse.in {
-    display: block !important;
-}*/

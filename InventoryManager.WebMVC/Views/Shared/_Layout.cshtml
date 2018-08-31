@@ -24,13 +24,11 @@
                 <ul class="nav navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li class="navButton" id="navCharacter"><a  href="@Url.Action("Index", "Character")"></a></li>
-                        <li class="navButton" id="navItem"><a  href="@Url.Action("Index", "Item")"></a></li>
-                        <li class="navButton" id="navBag"><a  href="@Url.Action("Create", "Backpack")"></a></li>
-                        @*@Html.ActionLink("Characters", "Index", "Character")*@
+                        <li class="navButton" id="navCharacter"><a href="@Url.Action("Index", "Character")"></a></li>
+                        <li class="navButton" id="navItem"><a href="@Url.Action("Index", "Item")"></a></li>
+                        <li class="navButton" id="navBag"><a href="@Url.Action("Create", "Backpack")"></a></li>
                     }
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    @* <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    <li class="navButton" id="navAbout"><a href="@Url.Action("About", "Home")"></a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -67,14 +65,44 @@
                 </div>
             </div>
         }
+        else if (name == "Create" && controller == "CharacterController")
+        {
+            <div class="jumbotron jumbotronAlt">
+                <div class="container-fluid ">
+                    <h1>Create a Character</h1>
+                    <h3>Fill out the form below to create a new character profile</h3>
+                </div>
+            </div>
+        }
+        else if (name == "Create" && controller == "ItemController")
+        {
+            <div class="jumbotron jumbotronAlt">
+                <div class="container-fluid ">
+                    <h1>Create an Item</h1>
+                    <h3>Fill out the form below to create a new item</h3>
+                </div>
+            </div>
+        }
+        else if (name == "Create" && controller == "BackpackController")
+        {
+            <div class="jumbotron jumbotronAlt">
+                <div class="container-fluid ">
+                    <h1>Fill Your Character's Bag</h1>
+                    <h3>Choose a character and an item to put in their bag</h3>
+                </div>
+            </div>
+        }
     }
 
     <div class="container body-content">
         @RenderBody()
     </div>
-    <hr />
     <footer class="footer">
-        <p>&copy; @DateTime.Now.Year - What's In My Bag?</p>
+        <ul class="nav navbar-nav">
+            <li class="footerSword"><a></a></li>
+            <li>&copy; @DateTime.Now.Year - What's In My Bag?</li>
+            <li class="footerSword"><a></a></li>
+        </ul>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

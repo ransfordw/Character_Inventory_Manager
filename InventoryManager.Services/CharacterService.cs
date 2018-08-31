@@ -68,6 +68,15 @@ namespace InventoryManager.Services
             }
         }
 
+        //public string GetCharacterNameById(int id)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity = ctx.Characters.Single(e => e.CharacterID == id && e.OwnerID == _userId);
+        //        return new CharacterDetail { CharacterName = entity.CharacterName };
+        //    }
+        //}
+
         public CharacterDetail GetCharacterById(int characterId)
         {
             using (var ctx = new ApplicationDbContext())

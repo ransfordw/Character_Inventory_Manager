@@ -48,11 +48,11 @@ namespace InventoryManager.WebMVC.Controllers
             
             ViewBag.CharacterID = new SelectList(characterService.GetCharacters(), "CharacterID", "CharacterName", model.CharacterID);
             ViewBag.ItemID = new SelectList(itemService.GetItems(), "ItemID", "ItemName", model.ItemID);
-
+            var characterName = characterService.GetCharacterById(model.CharacterID);
             if (service.CreateBackpack(model))
             {
                 TempData["SaveResult"] = "Your Backpack was created.";
-                return RedirectToAction("Index");
+                return RedirectToAction("CharacterBackpack","Character",new { id = model.CharacterID , characterName = characterName.CharacterName});
             };
 
             ModelState.AddModelError("", "Backpack could not be created.");
