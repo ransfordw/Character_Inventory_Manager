@@ -16,5 +16,10 @@ namespace InventoryManager.Models.Backpack
         public int ItemID { get; set; }
         public string CharacterName { get; set; }
         public string ItemName { get; set; }
+
+        public ItemType ItemType { get; set; }
+        public string ItemDescription { get; set; }
+        public int ItemValue { get; set; }
+        public Currency Currency { get; set; }
     }
 }

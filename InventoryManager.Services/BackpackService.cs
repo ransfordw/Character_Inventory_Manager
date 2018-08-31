@@ -99,6 +99,12 @@ namespace InventoryManager.Services
                             BackpackID = entity.BackpackID,
                             CharacterID = entity.CharacterID,
                             ItemID = entity.ItemID,
+                            CharacterName = entity.Character.CharacterName,
+                            ItemName = entity.Item.ItemName,
+                            ItemDescription = entity.Item.ItemDescription,
+                            ItemType = entity.Item.ItemType,
+                            ItemValue =entity.Item.ItemValue,
+                            Currency = entity.Item.Currency,
                         };
             }
         }
