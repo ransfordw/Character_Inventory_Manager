@@ -6,9 +6,7 @@
 
 <h2>@Html.DisplayFor(modelItem => Model.CharacterName)'s Backpack</h2>
 
-<p>
-    @Html.ActionLink("Add Item", "Create", "Backpack")
-</p>
+<span><a class="btn btn-default btn-profile " id="plusButton" href="@Url.Action("Create", "Backpack")"></a></span>
 
 <div class="charContainer">
     @foreach (var item in Model.BackpackItemList)
@@ -22,15 +20,16 @@
                     <a href='@Url.Action("Details", "Item", new { id = item.ItemID })'><h4>@Html.DisplayFor(modelItem => item.ItemName)</h4></a>
                     <h5>@Html.DisplayFor(modelItem => item.ItemDescription)</h5>
                 </div>
+                <div><span><a class="btn btn-default btn-profile " id="itemDelete" href="@Url.Action("Delete", "Backpack", new {id = item.BackpackID })"></a></span></div>
                 <div class="itemCard"><span></span></div>
             </div>
         </div>
     }
 </div>
 
-<table class="table">
+@*<table class="table">
     <tr>
-        <th>
+        <th>  
             Item Name
         </th>
         <th>
@@ -69,4 +68,4 @@
         </tr>
     }
 
-</table>
+</table>*@

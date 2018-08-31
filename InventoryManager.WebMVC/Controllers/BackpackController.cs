@@ -67,11 +67,25 @@ namespace InventoryManager.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Delete(int charId, int itemId)
+        public ActionResult Delete(int id)
         {
             var svc = CreateBackpackService();
-            var model = svc.GetBackpackItemByCharacterId(charId, itemId);
+            var model = svc.GetBackpackItemById(id);
             return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateBackpackService();
+
+            service.DeleteBackpack(id);
+
+            TempData["SaveResult"] = "The item was removed from the bag.";
+
+            return RedirectToAction("Index");
         }
 
         private BackpackService CreateBackpackService()

@@ -282,6 +282,7 @@
     <Content Include="Views\Backpack\Create.cshtml" />
     <Content Include="Views\Backpack\Details.cshtml" />
     <Content Include="Views\Character\CharacterBackpack.cshtml" />
+    <Content Include="Views\Backpack\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

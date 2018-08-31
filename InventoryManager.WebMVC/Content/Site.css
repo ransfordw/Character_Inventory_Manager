@@ -142,8 +142,18 @@ body {
     border-radius: 50%;
     border-color: transparent;
 }
-
-
+#itemDelete {
+    background-size: 75%;
+    background-position: center;
+    background-image: url('Assets/512px-Remove_sign_font_awesome.svg.png');
+    background-repeat: no-repeat;
+    color: transparent;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: transparent;
+    top: 25px;
+    right: 10px;
+}
 
 #createIcon {
     width: 15em;
@@ -279,7 +289,7 @@ body {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 200px;
+        max-width: 160px;
     }
 
         .profile .content .text h3, .profile .content .text h6 {
@@ -324,4 +334,16 @@ body {
     top: 0px;
     border-radius: 50%;
     z-index: -2;
+}
+
+#plusButton {
+    background-image: url('Assets/plus sign.svg');
+    width: 4em;
+    height: 4em;
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: green;
+    border-radius: 50%;
+    border-color: transparent;
 }

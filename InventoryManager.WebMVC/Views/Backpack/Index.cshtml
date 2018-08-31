@@ -6,9 +6,7 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<span><a class="btn btn-default btn-profile " id="plusButton" href="@Url.Action("Create", "Backpack")"></a></span>
 <table class="table">
     <tr>
         <th>Character Name</th>
@@ -24,9 +22,8 @@
             @Html.DisplayFor(modelItem => item.ItemName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CharacterID , CharacterName = item.CharacterName}) |
             @Html.ActionLink("Details", "Details", new { charId = item.CharacterID, itemId=item.ItemID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CharacterID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.BackpackID })
         </td>
     </tr>
 }

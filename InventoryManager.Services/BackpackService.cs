@@ -85,6 +85,24 @@ namespace InventoryManager.Services
             }
         }
 
+        public BackpackList GetBackpackItemById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Backpacks
+                            .Single(e => e.BackpackID == id && e.OwnerID == _userId);
+                return
+                        new BackpackList
+                        {
+                            BackpackID = entity.BackpackID,
+                            CharacterID = entity.CharacterID,
+                            ItemID = entity.ItemID,
+                        };
+            }
+        }
+
         public TitleView GetCharacterBackpack(int id, string characterName)
         {
             using (var ctx = new ApplicationDbContext())
@@ -106,6 +124,7 @@ namespace InventoryManager.Services
                                        ItemDescription = i.ItemDescription,
                                        ItemValue = i.ItemValue,
                                        Currency = i.Currency,
+                                       BackpackID = backpack.BackpackID,
                                    }
                             );
                         _queryableList = query.ToList();
@@ -122,14 +141,14 @@ namespace InventoryManager.Services
             }
         }
 
-        public bool DeleteBackpack(int backpackId)
+        public bool DeleteBackpack(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                        ctx
                             .Backpacks
-                            .Single(e => e.BackpackID == backpackId && e.OwnerID == _userId);
+                            .Single(e => e.BackpackID == id && e.OwnerID == _userId);
                 ctx.Backpacks.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

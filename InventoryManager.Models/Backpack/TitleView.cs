@@ -10,5 +10,6 @@ namespace InventoryManager.Models.Backpack
     {
         public string CharacterName { get; set; }
         public IEnumerable<CharacterBackpackList> BackpackItemList { get; set; }
+        public int BackpackID { get; set; }
     }
 }
