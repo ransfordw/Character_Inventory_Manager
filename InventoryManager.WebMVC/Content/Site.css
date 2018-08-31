@@ -63,6 +63,9 @@ body {
     background-image: url('Assets/knight.svg');
 }
 #item {
+    background-image: url('Assets/Bow_Arrow-512.png');
+}
+#bag {
     background-image: url('Assets/bag.svg');
 }
 .homePageButton:hover {
@@ -153,6 +156,24 @@ body {
     background-color: transparent;
     top: 25px;
     right: 10px;
+}
+
+#itemEdit {
+    background-size: 60%;
+    /*background-size: 40%;*/
+    background-position: center;
+    background-image: url('Assets/edit_btn_img.png');
+    
+    background-repeat: no-repeat;
+    color: transparent;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: transparent;
+    top: 25px;
+    /*top: -5px;*/
+    right: 50px;
+    /*right: 205px;*/
+
 }
 
 #createIcon {
@@ -283,13 +304,20 @@ body {
     margin-top: 0px;
     margin-left: 80px;
     max-width: 200px;
+        
 }
-
-    .itemText h5, .itemText h4{
+    .itemText h5 {
+        max-width: 125px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    .itemText h4 {
         max-width: 160px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 6px;
     }
 
         .profile .content .text h3, .profile .content .text h6 {

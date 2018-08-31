@@ -11,7 +11,7 @@
     {
         <div class="profile">
             <div class="photo">
-                <a href='@Url.Action("Details", "Character", new { id = item.ItemID })'><img src="~/Content/Assets/bag.svg"  /></a>
+                <a href='@Url.Action("Details", "Character", new { id = item.ItemID })'><img src="~/Content/Assets/Bow_Arrow-512.png"  /></a>
             </div>
             <div class="content itemContent">
                 <div class="itemText">
@@ -19,7 +19,8 @@
                     <h5>@Html.DisplayFor(modelItem => item.ItemDescription)</h5>
                 </div>
                 <div><span><a class="btn btn-default btn-profile " id="itemDelete" href="@Url.Action("Delete", "Item", new { id = item.ItemID})"></a></span></div>
-               <div class="itemCard"><span ></span></div>
+                <span><a class="btn btn-default btn-profile" id="itemEdit" href="@Url.Action("Edit", "Item", new { id = item.ItemID})"></a></span></div>
+                <div class="itemCard"><span></span>
             </div>
         </div>
     }

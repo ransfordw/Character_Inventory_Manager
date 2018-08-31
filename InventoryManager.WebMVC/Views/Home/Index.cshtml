@@ -3,13 +3,17 @@
 }
 
 <div class="row">
-    <div class="col-md-6" id="itemsButton">
+    <div class="col-md-4" id="itemsButton">
         <h2>Characters</h2>
-        <span><a class="btn btn-default homePageButton" id="character" href="http://localhost:53791/Character/Index"></a></span>
+        <span><a class="btn btn-default homePageButton" id="character" href="@Url.Action("Index", "Character")"></a></span>
     </div>
-    <div class="col-md-6" id="itemsButton">
+    <div class="col-md-4" id="itemsButton">
         <h2>Items</h2>
-        <span><a class="btn btn-default homePageButton" id="item" href="http://localhost:53791/Item/Index"></a></span>
+        <span><a class="btn btn-default homePageButton" id="item" href="@Url.Action("Index", "Item")"></a></span>
+    </div>
+    <div class="col-md-4" id="itemsButton">
+        <h2>Assign Item</h2>
+        <span><a class="btn btn-default homePageButton" id="bag" href="@Url.Action("Create", "Backpack")"></a></span>
     </div>
 
 </div>
