@@ -22,16 +22,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Characters", "Index", "Character")</li>
-                        <li>@Html.ActionLink("Items", "Index", "Item")</li>
-                        <li>@Html.ActionLink("Backpack", "Index", "Backpack")</li>
-
+                        <li class="navButton" id="navCharacter"><a  href="@Url.Action("Index", "Character")"></a></li>
+                        <li class="navButton" id="navItem"><a  href="@Url.Action("Index", "Item")"></a></li>
+                        <li class="navButton" id="navBag"><a  href="@Url.Action("Create", "Backpack")"></a></li>
+                        @*@Html.ActionLink("Characters", "Index", "Character")*@
                     }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @* <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -74,7 +73,7 @@
         @RenderBody()
     </div>
     <hr />
-    <footer>
+    <footer class="footer">
         <p>&copy; @DateTime.Now.Year - What's In My Bag?</p>
     </footer>
 
