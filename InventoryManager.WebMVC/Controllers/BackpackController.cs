@@ -10,9 +10,9 @@ using System.Web.Mvc;
 
 namespace InventoryManager.WebMVC.Controllers
 {
+    [Authorize]
     public class BackpackController : Controller
     {
-
         // GET: Backpack
         public ActionResult Index()
         {
@@ -52,7 +52,7 @@ namespace InventoryManager.WebMVC.Controllers
             if (service.CreateBackpack(model))
             {
                 TempData["SaveResult"] = "Your Backpack was created.";
-                return RedirectToAction("CharacterBackpack","Character",new { id = model.CharacterID , characterName = characterName.CharacterName});
+                return RedirectToAction("CharacterBackpack", "Character", new { id = model.CharacterID, characterName = characterName.CharacterName });
             };
 
             ModelState.AddModelError("", "Backpack could not be created.");

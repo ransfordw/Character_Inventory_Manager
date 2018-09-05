@@ -16,7 +16,9 @@
                     <a href='@Url.Action("Details", "Character", new { id = item.CharacterID })'><h4>@Html.DisplayFor(modelItem => item.CharacterName)</h4></a>
                     <h5>@Html.DisplayFor(modelItem => item.CharacterClass)</h5>
                 </div>
-                <div><span><a class="btn btn-default btn-profile" id="bagLink" href="@Url.Action("CharacterBackpack", "Character", new { id = item.CharacterID, characterName = item.CharacterName })"></a></span></div>
+                <div><span>
+                    <a class="btn btn-default btn-profile" id="bagLink" href="@Url.Action("CharacterBackpack", "Character", new { id = item.CharacterID, characterName = item.CharacterName })"></a>
+                    </span></div>
             </div>
         </div>
     }

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace InventoryManager.WebMVC.Controllers
 {
+    [Authorize]
     public class CharacterController : Controller
     {
         // GET: Character

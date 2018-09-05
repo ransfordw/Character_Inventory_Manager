@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace InventoryManager.WebMVC.Controllers
 {
+    [Authorize]
     public class ItemController : Controller
     {
         // GET: Item
