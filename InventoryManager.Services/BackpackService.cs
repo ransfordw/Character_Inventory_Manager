@@ -103,7 +103,7 @@ namespace InventoryManager.Services
                             ItemName = entity.Item.ItemName,
                             ItemDescription = entity.Item.ItemDescription,
                             ItemType = entity.Item.ItemType,
-                            ItemValue =entity.Item.ItemValue,
+                            ItemValue = entity.Item.ItemValue,
                             Currency = entity.Item.Currency,
                         };
             }
@@ -113,32 +113,33 @@ namespace InventoryManager.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                foreach (Backpack backpack in ctx.Backpacks)
+                foreach (Backpack backpack in ctx.Backpacks.AsNoTracking().Where(b => b.CharacterID == id).ToList())
                 {
-                    if (backpack.CharacterID == id)
+
+
+                    var query = ctx.Items
+                        .AsNoTracking()
+                        .Where(i => i.ItemID == backpack.ItemID)
+                        .Select(
+                               i =>
+                               new CharacterBackpackList
+                               {
+                                   ItemID = i.ItemID,
+                                   CharacterName = backpack.Character.CharacterName,
+                                   ItemType = i.ItemType,
+                                   ItemName = i.ItemName,
+                                   ItemDescription = i.ItemDescription,
+                                   ItemValue = i.ItemValue,
+                                   Currency = i.Currency,
+                                   BackpackID = backpack.BackpackID,
+                               }
+                        );
+                    _queryableList = query.ToList();
+                    foreach (var item in _queryableList)
                     {
-                        var query = ctx.Items
-                            .Where(i => i.ItemID == backpack.ItemID)
-                            .Select(
-                                   i =>
-                                   new CharacterBackpackList
-                                   {
-                                       ItemID = i.ItemID,
-                                       CharacterName = backpack.Character.CharacterName,
-                                       ItemType = i.ItemType,
-                                       ItemName = i.ItemName,
-                                       ItemDescription = i.ItemDescription,
-                                       ItemValue = i.ItemValue,
-                                       Currency = i.Currency,
-                                       BackpackID = backpack.BackpackID,
-                                   }
-                            );
-                        _queryableList = query.ToList();
-                        foreach (var item in _queryableList)
-                        {
-                            _characterBackpackItems.Add(item);
-                        }
+                        _characterBackpackItems.Add(item);
                     }
+
                 }
                 TitleView titleView = new TitleView();
                 titleView.BackpackItemList = _characterBackpackItems;

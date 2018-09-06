@@ -4,9 +4,9 @@
     ViewBag.Title = "Details";
 }
 
+<div class="form-horizontal">
 <h2>Character Details</h2>
 
-<div>
     <br />
     <dl class="dl-horizontal panel">
         <dt>
@@ -34,9 +34,9 @@
         </dd>
 
     </dl>
-</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CharacterID }) |
     @Html.ActionLink("Delete Character","Delete", new { id =Model.CharacterID}) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+</div>
