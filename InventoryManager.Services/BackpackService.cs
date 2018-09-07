@@ -115,8 +115,6 @@ namespace InventoryManager.Services
             {
                 foreach (Backpack backpack in ctx.Backpacks.AsNoTracking().Where(b => b.CharacterID == id).ToList())
                 {
-
-
                     var query = ctx.Items
                         .AsNoTracking()
                         .Where(i => i.ItemID == backpack.ItemID)
@@ -139,7 +137,6 @@ namespace InventoryManager.Services
                     {
                         _characterBackpackItems.Add(item);
                     }
-
                 }
                 TitleView titleView = new TitleView();
                 titleView.BackpackItemList = _characterBackpackItems;
