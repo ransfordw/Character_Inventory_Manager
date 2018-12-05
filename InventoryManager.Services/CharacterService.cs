@@ -1,13 +1,10 @@
 ﻿using InventoryManager.Contracts;
 using InventoryManager.Data;
-using InventoryManager.Models;
 using InventoryManager.Models.CharacterModels;
 using InventoryMangager.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InventoryManager.Services
 {
@@ -67,15 +64,6 @@ namespace InventoryManager.Services
                 return replaceCharacterList.ToArray();
             }
         }
-
-        //public string GetCharacterNameById(int id)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity = ctx.Characters.Single(e => e.CharacterID == id && e.OwnerID == _userId);
-        //        return new CharacterDetail { CharacterName = entity.CharacterName };
-        //    }
-        //}
 
         public CharacterDetail GetCharacterById(int characterId)
         {

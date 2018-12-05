@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManager.Services",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManager.Tests", "InventoryManager.Tests\InventoryManager.Tests.csproj", "{99FC6F76-2E31-458C-89C1-7DF77B801CA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManager.WebApi", "InventoryManager.WebApi\InventoryManager.WebApi.csproj", "{35FDBD03-0C47-42F7-9FD8-D4E2972BF96C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{99FC6F76-2E31-458C-89C1-7DF77B801CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99FC6F76-2E31-458C-89C1-7DF77B801CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99FC6F76-2E31-458C-89C1-7DF77B801CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FDBD03-0C47-42F7-9FD8-D4E2972BF96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FDBD03-0C47-42F7-9FD8-D4E2972BF96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FDBD03-0C47-42F7-9FD8-D4E2972BF96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FDBD03-0C47-42F7-9FD8-D4E2972BF96C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
