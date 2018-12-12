@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace InventoryMangager.Data
 {
     public enum CharacterClass { Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Wizard }
-    public enum CharacterRace { [Display(Name = "Small people")]Dwarf, Elf, Gnome, [Display(Name= "Half Elf")]Half_Elf, [Display(Name = "Half Orc")] Half_Orc, Hafling, Human }
+    public enum CharacterRace { Dwarf, Elf, Gnome, [Display(Name= "Half Elf")]Half_Elf, [Display(Name = "Half Orc")] Half_Orc, Hafling, Human }
     
     public class Character
     {

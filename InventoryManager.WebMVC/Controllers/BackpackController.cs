@@ -16,8 +16,7 @@ namespace InventoryManager.WebMVC.Controllers
         // GET: Backpack
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new BackpackService(userId);
+            var service = CreateBackpackService();
             var model = service.GetBackpacks();
             return View(model);
         }
