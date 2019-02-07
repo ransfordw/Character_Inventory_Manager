@@ -24,41 +24,6 @@
     }
 </div>
 
-@*<h2>Table View</h2>
-<table class="table">
-    <tr>
-
-        <th>
-            @Html.DisplayNameFor(model => model.CharacterName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CharacterClass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CharacterRace)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CharacterName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CharacterClass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CharacterRace)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.CharacterID }) |
-                @Html.ActionLink("Backpack", "CharacterBackpack", new { id = item.CharacterID, characterName = item.CharacterName })
-            </td>
-        </tr>
-    }
-</table>*@
 <div>
     <div class="jumbotron charJumbotron">
         <div class="container-fluid ">

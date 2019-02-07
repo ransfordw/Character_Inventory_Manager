@@ -16,8 +16,7 @@ namespace InventoryManager.WebMVC.Controllers
         // GET: Character
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CharacterService(userId);
+            var service = CreateCharacterService();
             var model = service.GetCharacters();
             return View(model);
         }

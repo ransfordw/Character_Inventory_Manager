@@ -15,8 +15,7 @@ namespace InventoryManager.WebMVC.Controllers
         // GET: Item
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ItemService(userId);
+            var service = CreateItemService();
             var model = service.GetItems();
             return View(model);
         }
