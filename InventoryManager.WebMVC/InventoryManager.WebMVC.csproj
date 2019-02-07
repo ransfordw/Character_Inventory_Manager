@@ -301,7 +301,6 @@
     <Content Include="Views\Backpack\Details.cshtml" />
     <Content Include="Views\Character\CharacterBackpack.cshtml" />
     <Content Include="Views\Backpack\Delete.cshtml" />
-    <Content Include="Views\Home\HelloSteph.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
