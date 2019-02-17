@@ -219,6 +219,20 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Assets\512px-Remove_sign_font_awesome.svg.png" />
+    <Content Include="Content\Assets\About_icon_%28The_Noun_Project%29.svg.png" />
+    <Content Include="Content\Assets\background-image-3497025_1920.jpg" />
+    <Content Include="Content\Assets\bag.svg" />
+    <Content Include="Content\Assets\Bow_Arrow-512.png" />
+    <Content Include="Content\Assets\canvasBags.jpg" />
+    <Content Include="Content\Assets\dragon-slayer-145565_960_720.png" />
+    <Content Include="Content\Assets\edit_btn_img.png" />
+    <Content Include="Content\Assets\Edit_Notepad_Icon.svg.png" />
+    <Content Include="Content\Assets\icons8-add-user-male-26.png" />
+    <Content Include="Content\Assets\if_Sword_2913105.svg" />
+    <Content Include="Content\Assets\knight.svg" />
+    <Content Include="Content\Assets\Minimalist_info_Icon.png" />
+    <Content Include="Content\Assets\plus sign.svg" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -304,7 +318,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
