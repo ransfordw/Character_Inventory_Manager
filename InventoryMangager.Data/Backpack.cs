@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InventoryMangager.Data
 {
@@ -20,6 +15,7 @@ namespace InventoryMangager.Data
         [Required]
         public Guid OwnerID { get; set; }
 
+        //Add extended properties for bonus features for a specific characters items i.e. a blade gets cursed and gains the ghost-touch property
         public virtual Character Character { get; set; }
         public virtual Item Item { get; set; }
     }
